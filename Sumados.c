@@ -10,10 +10,10 @@ int main(){
     int x=5, y=10;
         int resultado;
         
-        imprimirMensaje(); //Llamado de la funcion
+        imprimirmensaje(); //Llamado de la funcion
 
         resultado=sumar(x, y);
 
 printf("La suma de %d y %d es: %d\n", x, y, resultado);
-return ;
+return 0;
 }
