@@ -8,4 +8,6 @@ int main(void){
     printf("\tCasado       3500\n");
     printf("\tGallo pinto  2000\n");
     printf("\tRefresco     1000\n");
+
+    return 0;
 }
