@@ -1,0 +1,27 @@
+//circulo.c trabaja con la constante de PI
+#include <stdio.h>
+#define PI 3.14159265358979 //Constante Simbolica: el procesador cambia PI por el numero
+
+int main(void){
+    //Constante de cadena: no puede cambiar durante el programa
+    const char UNIDAD[] = "cm";
+    //Variales reales para el radio y los resultados
+    double radio, area, perimetro;
+
+    //ENTRADA: lee el radio -> radio = 4
+    printf("Radio del circulo: ");
+    scanf("%lf", &radio);
+
+    //Proceso: En C no existe ^; radio al cuadrado = radio*radio -> 50.27
+    area = PI *radio * radio;
+
+    //Perimetro = 2 * PI * radio -> 25.13
+    perimetro = 2 * PI * radio;
+
+    //SALIDA: %.2f muestra dos decimales y %s muestra la cadena UNIDAD
+    printf("Area: %.2f %s2\n",area, UNIDAD);
+
+    printf("Perimetro: %.2f %s\n", perimetro, UNIDAD);
+
+    return 0;
+}
