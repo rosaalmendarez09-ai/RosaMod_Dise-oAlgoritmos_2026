@@ -1,0 +1,11 @@
+# Archivos ejecutables y compilados de C
+*.out
+*.exe
+*.dSYM/
+
+# Archivos generados por (macOS)
+.DS_Store
+
+
+# Editores (Visual Studio Code)
+.vscode/
