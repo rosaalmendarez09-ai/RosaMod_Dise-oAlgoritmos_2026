@@ -108,11 +108,11 @@ Las capturas de pantalla van en la subcarpeta `capturas/` de cada sesión
 
 | Sesión  | Tema                                         | Qué aprendí |                  Evidencia                   | Estado |
 | :-----: | :------------------------------------------- | :---------- | :------------------------------------------: | :----: |
-|   S14   | Sistemas numéricos                           |             |               [ver](UA2/S14/)                |   ⬜   |
-|   S15   | Control de versiones con git y GitHub        |             |               [ver](UA2/S15/)                |   ⬜   |
-|   S16   | Formato de un programa en C y compilación    |             |               [ver](UA2/S16/)                |   ⬜   |
-|   S17   | Variables, constantes y entrada/salida       |             |               [ver](UA2/S17/)                |   ⬜   |
-|   S18   | Operadores, casting e if … else              |             |               [ver](UA2/S18/)                |   ⬜   |
+|   S14   | Sistemas numéricos                           | Aprendi sistemas numericos: binarios, decimales,octle y hexadecimales |               [ver](UA2/S14/S14.Sistemas_numericos.png)                |   ⬜   |
+|   S15   | Control de versiones con git y GitHub        | Creamos repositorio  |               [ver](UA2/S15/S.15.Estructura_Repositorio.png)                |   ⬜   |
+|   S16   | Formato de un programa en C y compilación    | Aprendi gcc para transformar codigo fuente en programas ejecutables    |               [ver](UA2/S16/S16_Inicio_C.png)                |   ⬜   |
+|   S17   | Variables, constantes y entrada/salida       | Aprendi como definir variables y constantes en C  S17 |               [ver](UA2/S17/S17.Constantes_Variables.png)                |   ⬜   |s
+|   S18   | Operadores, casting e if … else              | Utilizamos casting, operadores, valores logicos     |               [ver](UA2/S18/)                |   ⬜   |
 |   S19   | Ciclos y switch                              |             |               [ver](UA2/S19/)                |   ⬜   |
 |   S20   | Arreglos, matrices y cadenas                 |             |               [ver](UA2/S20/)                |   ⬜   |
 |   S21   | Funciones                                    |             |               [ver](UA2/S21/)                |   ⬜   |
