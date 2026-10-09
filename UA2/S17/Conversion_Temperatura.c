@@ -5,11 +5,11 @@ int main(void){
 float celsius, fahrenheit;
 
 printf("Temperatura en grados celsius: ");
-scanf("%lf", &celsius);
+scanf("%f", &celsius);
 
-fahrenheit = celsius * (9 / 5) + 32;
+fahrenheit = celsius * (9.0 / 5.0) + 32;
 
-printf("Celsius equivale a:  %.2lf °f", fahrenheit);
+printf("%.0f °C equivale a:  %.0f °f\n", celsius, fahrenheit);
 
 
 return 0;
