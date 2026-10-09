@@ -7,7 +7,7 @@
 int main(void){
 
     // DEFINO VARIABLES
-    double horas, pagoHora, bono, salario;
+    double horas, pagoHora, salario;
 
         // Entrada
     printf("Horas trabajadas en la semana:  ");
