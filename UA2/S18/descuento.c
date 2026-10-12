@@ -3,7 +3,7 @@
 // define constante
 #define MINIMO 50000.0
 
-int main(){
+int main(void){
     // define variables
     const double TASA = 0.10;
     double compra, descuento, total;
