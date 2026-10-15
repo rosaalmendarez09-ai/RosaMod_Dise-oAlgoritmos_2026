@@ -2,6 +2,7 @@
 Cualquier otro numero es voto nulo. Al final se muestra una barra de *** con los votos del candidato */
 
 #include <stdio.h> //Trae printf y scanf
+#include <stdlib.h> 
 #define FIN 0 //definimos constantes e iniciallizamos
 
 int main(void){ //Funcion principal 
@@ -85,7 +86,7 @@ int main(void){ //Funcion principal
         else if (sofia == mayor)
         printf("Gana Sofía con %d votos\n", mayor);//3 votos
 
-
+        system("pause");
     return 0;
 
 }
