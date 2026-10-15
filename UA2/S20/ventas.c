@@ -4,7 +4,7 @@
 RESULTADO ESPERADO: Centro 470, Norte 350, Sur 410; por dia 330 270 330; Sucursal con más ventas: Centro(470)*/
 
 #include <stdio.h>
-#include <string>
+#include <string.h>
 #include <stdlib.h> //strcpy
 
 //CONSTANTES
@@ -21,10 +21,10 @@ int main(void){
                               {120, 90, 100, 100} };
 
     char mejor[10]; //Nombre de la sucursal ganadora
-    int s, d, total, totalDia, mayor = 0; 
+    int s=0, d=0, total=0, totalDia=0, mayor = 0; 
     
     //Encabezado: D1 a D4
-    printf("%-8s", "");
+    printf("%-8s", "  ");
 
     for(d = 0; d < DIAS; d++){
         printf("  D%d + d+1"); 
@@ -43,14 +43,14 @@ int main(void){
        printf("  | %5d\n", total); //470, 350, 410
 
        //Guardar la avariable con mayor total; strcpy copia el nombre
-       if( total > maypr){
+       if( total > mayor){
         mayor = total;
         strcpy(mejor, nombres[s]);
        }
     }
     
     //RECORRIDO POR COLUMNAS. el for externo recorre los dias
-    printf("%-8s", DIAS);
+    printf("%-8s", "Dia");
 
     for( d= 0; d < DIAS; d++){
        totalDia = 0;
@@ -65,7 +65,7 @@ int main(void){
     //SALIDAS: Sucursalcon mas ventas: Centro 470
     printf("Sucursal con más ventas: %s (%d)\n", mejor, mayor);
 
-    sistem("pause");
+    system("pause");
 
     
     return 0;
