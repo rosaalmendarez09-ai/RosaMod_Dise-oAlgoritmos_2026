@@ -113,7 +113,7 @@ Las capturas de pantalla van en la subcarpeta `capturas/` de cada sesión
 |   S16   | Formato de un programa en C y compilación    | Aprendi gcc para transformar codigo fuente en programas ejecutables |              [ver](UA2/S16/S16_Inicio_C.png)                |      |
 |   S17   | Variables, constantes y entrada/salida       | Aprendi como definir variables y constantes en C  S17 |               [ver](UA2/S17/S17.Constantes_Variables.png)                |   ✅   |
 |   S18   | Operadores, casting e if … else              | Utilizamos casting, operadores, valores logicos     |               [ver](UA2/S18/S.18_descuento.png)                |   ✅   |
-|   S19   | Ciclos y switch                              |Aprendi ciclo while, do- while y switch    |               [ver](UA2/S19/S19_switch_break.png)                |   ✅   |
+|   S19   | Ciclos y switch                              | Aprendi ciclo while, do- while y switch, en el ejercicio de encontrar lo mas complicado fue que no continuaba donde ingreso el dato erroneo sino que saltaba tres espaciosS19    |               [ver](UA2/S19/S19_switch_break.png) [ver](UA2/S19/repaso/S19.Ejercicio_buscar_repaso.png)               |   ✅   |
 |   S20   | Arreglos, matrices y cadenas                 |             |               [ver](UA2/S20/)                |   ⬜   |
 |   S21   | Funciones                                    |             |               [ver](UA2/S21/)                |   ⬜   |
 |   S22   | Paso de parámetros por valor y por dirección |             |               [ver](UA2/S22/)                |   ⬜   |
