@@ -11,6 +11,7 @@ RESULTADO ESPERADO: Centro 470, Norte 350, Sur 410; por dia 330 270 330; Sucursa
 #define SUC 3 //Filas sucursales
 #define DIAS 4 //Columnas dias
 
+
 int main(void){
     //Arreglo de cadenas: una fila por nombre(hats 9 letras + '\0')
     char nombres[SUC] [10] = {"Centro", "Norte", "Sur"};
@@ -27,9 +28,9 @@ int main(void){
     printf("%-8s", "  ");
 
     for(d = 0; d < DIAS; d++){
-        printf("  D%d + d+1"); 
+        printf("  D%-2d", + d+1); 
     }
-    printf("  |  Total\n");
+    printf("   |   Total\n");
 
     //RECORRIDO POR FILAS
     for(s = 0; s < SUC; s++){
@@ -50,7 +51,7 @@ int main(void){
     }
     
     //RECORRIDO POR COLUMNAS. el for externo recorre los dias
-    printf("%-8s", "Dia");
+    printf(" %s", "Dia");
 
     for( d= 0; d < DIAS; d++){
        totalDia = 0;
@@ -58,7 +59,7 @@ int main(void){
        for ( s = 0; s < SUC; s++){
        totalDia += ventas [s] [d];
        }
-       printf("%d", totalDia); //330 270 330 300
+       printf(" %4d", totalDia); //330 270 330 300
     }
     printf("\n");
 
