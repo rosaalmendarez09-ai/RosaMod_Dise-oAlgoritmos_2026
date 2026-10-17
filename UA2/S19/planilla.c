@@ -1,62 +1,79 @@
-// planilla.c calcula la planilla de un grupo de personas sin saber cuántas son. Centinela -1 indica el final.
+// planilla.c calcula la planilla de un grupo de personas sin saber cuántas son. Centinela -1 indica el final.SALIDA: cuantas personas, horas extras y totalplanilla.
+
 
 #include <stdio.h>
+#include <string.h> //libreria manejo de fgets- strcspn
 
 // Constante CENTINELA indica el final
 #define CENTINELA -1
+#define LIMITE 48
+#define RECARGO 1.5
 
 int main(void){
 
-    // Variables
-int cantidad, i, conExtra;
+// Variables
+int cantidad, i = 0, conExtra = 0;//acumula extras
 char nombre[50];
-double horas, tarifa, horasExtra, pago, totalPlanilla;
+double horas, tarifa, horasExtra, pago, totalPlanilla = 0.0;//acumula pagos
 
-    totalPlanilla = 0.0; //ACUMULADOR: suma todos los pagos
-    i = 0; //CONTADOR 1
-    conExtra = 0; //CONTADOR 2
 
-    printf("Cantidad de personas colaboradoras(-1 para salir): ");
+    printf("Cuantos colaboradores?(-1:Salir): ");
     scanf("%d", &cantidad);
 
-
     // while 
-    i = 1; //INICIALIZAR contador
-    while (cantidad != CENTINELA)
-      {   //PREGUNTAR
-        printf("Nombre: \n");
-        scanf("%49s", nombre);
+    while (cantidad != CENTINELA){  //preguntar
 
+        i++;//contador de personas
+        while (getchar() != '\n'); //limpia el salto del scanf
+
+        printf("Nombre completo %d: ", i);
+        fgets(nombre, sizeof(nombre), stdin);
+
+        do{
         printf("Horas de la semana(0-72): ");
         scanf("%lf", &horas);
+            if (horas < 0 || horas > 72){
+            printf("Dato invalido, ingrese las horas correctas: ");
+            scanf("%lf", &horas);
+            }
+        }while (horas < 0 || horas > 72);
+       
+        printf("Tarifa por hora: ");
+        scanf("%lf", &tarifa);
 
-            if (horas < 0 || horas > 72)
+            if (horas > LIMITE)
             {
-            printf("Dato inválido, intente de nuevo");
+            horasExtra = horas - LIMITE; 
+            pago = (LIMITE * tarifa) + (horasExtra * (tarifa * RECARGO));
+            conExtra += 1;
             }
-            else {
-             printf("Tarifa por hora: \n");
-             scanf("%lf", &tarifa);
+            else
+            {
+                horasExtra = 0; // sino hay extras
+                pago = horas * tarifa;
             }
+        
+            totalPlanilla += pago;
+    
+        printf("\n========================================\n");
+        printf("  RESUMEN\n");
+        printf("  %s", nombre);
+        nombre[strcspn(nombre,"")]='\0';
+        printf("  Horas totales : %.1f hrs\n", horas);
+        printf("  Horas extras  : %.1f hrs\n", horasExtra);
+        printf("  Pago semanal  : ₡%.2f\n", pago);
+        printf("========================================\n");
 
-            if (horas > 48){
-            horasExtra = horas - 48;
-            pago = (48 * tarifa) + (horasExtra * (tarifa * 1.5));
-            conExtra = conExtra + 1;
-            }
-                else {
-                    pago = horas * tarifa;
-                }
+        // 4. RE-LECTURA AL FINAL DEL BUCLE
+        printf("\n¿Desea ingresar otro colaborador? (-1: Salir): ");
+        scanf("%d", &cantidad);
+        }
 
-                    printf("\nPago para %s: %.2f", nombre, pago);
-                    totalPlanilla = totalPlanilla + pago;
-            }
-      i = i++;    //ACTUALIZAR
-      printf("\nIngrese nueva cantidad o -1 para salir: ");
-      scanf("%d", &cantidad);
-
-      printf("Total de la planilla: %.2f\n", totalPlanilla);
-      printf("Personas con horas extra: ", conExtra);
-
+        printf("\n========================================\n");
+        printf("  RESUMEN GENERAL\n");
+        printf("  Cantidad de personas: %d\n", i);
+        printf("  Con extras: %d\n", conExtra);
+        printf("  Total planilla: %.2lf\n", totalPlanilla);
+        printf("\n========================================\n");
     return 0;
 }
