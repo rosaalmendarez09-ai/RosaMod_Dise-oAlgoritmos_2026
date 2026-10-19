@@ -38,7 +38,18 @@ int main(void)
         mes += ventas[i]; // ventas del mes
     }
 
-    
+        // Calcular comision y bono
+        comision = mes * COMISION;
+        if (mes > LIMITE)
+        {
+            bono = BONO;
+        }
+        else {
+            bono = 0;
+        }
+        
+
+
 
     return 0;
 }
