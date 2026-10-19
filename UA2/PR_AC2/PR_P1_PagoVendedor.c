@@ -9,20 +9,36 @@ decimales.*/
 #include <stdio.h>
 #define BONO 50
 #define LIMITE 2000
-#define COMISION 0.5
-#define RETENCION 0.2
-#define BONO 50
+#define COMISION 0.05
+#define RETENCION 0.02
 
-int main(void){
-    double ventas[4], pago, semana, mes;
-    int nombre, i, pago;
+int main(void)
+{
+    double ventas[4], pago, comision, bono = 0, mes = 0, retencion;
+    int i;
+    char nombre[50];
 
+    printf("Nombre del vendedor: ");
+    scanf("%s", nombre);
 
-    printf("");
+    // ingresar las ventas de las 4 semanas y validar negativos
+    for (i = 0; i < 4; i++)
+    {
+        do 
+        {
+            printf("\nIngrese ventas semana %d: ", i + 1);
+            scanf("%lf", &ventas[i]);
 
+            if (ventas[i] < 0)
+            {
+                printf("Dato erroneo, no puede ser negativo, vuelva a introducir dato: \n");
+            }
+        } while (ventas[i] < 0);
 
+        mes += ventas[i]; // ventas del mes
+    }
 
+    
 
     return 0;
 }
-
