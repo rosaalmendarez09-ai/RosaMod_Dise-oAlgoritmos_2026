@@ -1,0 +1,1 @@
+// inventario.c Consultar productos de una libreria por codigo y conocer el valor total del inventario
