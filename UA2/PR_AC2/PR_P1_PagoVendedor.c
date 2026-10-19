@@ -6,7 +6,9 @@ mes superan 2000.
 4. Muestre las ventas de cada semana, las ventas del mes y el detalle del pago con dos
 decimales.*/
 
-#include <stdio.h>
+#include <stdio.h>  //libreria printf y scanf
+#include <string.h> // uso de fgets, otros: no me deja escribir nombre compuesto por eso lo voy a utilizar
+
 #define BONO 50
 #define LIMITE 2000
 #define COMISION 0.05
@@ -19,14 +21,15 @@ int main(void)
     char nombre[50];
 
     printf("Nombre del vendedor: ");
-    scanf("%s", nombre);
+    fgets(nombre, sizeof(nombre), stdin);
+    nombre[strcspn(nombre, "\n")] = '\0';
 
     // ingresar las ventas de las 4 semanas y validar negativos
     for (i = 0; i < 4; i++)
     {
-        do 
+        do
         {
-            printf("\nIngrese ventas semana %d: ", i + 1);
+            printf("Ingrese ventas semana %d: ", i + 1);
             scanf("%lf", &ventas[i]);
 
             if (ventas[i] < 0)
@@ -38,20 +41,34 @@ int main(void)
         mes += ventas[i]; // ventas del mes
     }
 
-        // Calcular comision y bono
-        comision = mes * COMISION;
-        if (mes > LIMITE)
-        {
-            bono = BONO;
-        }
-        else {
-            bono = 0;
-        }
-       
-        // Calculo de retencion y pago
-        retencion = (comision+bono) * RETENCION;
-        pago = (comision+bono) - retencion;
+    // Calcular comision y bono
+    comision = mes * COMISION;
+    if (mes > LIMITE)
+    {
+        bono = BONO;
+    }
+    else
+    {
+        bono = 0;
+    }
 
+    // Calculo de retencion y pago
+    retencion = (comision + bono) * RETENCION;
+    pago = (comision + bono) - retencion;
+
+    // Muestra de resultados
+    printf("====PAGO DE COMISIONES DEL MES====\n");
+    printf("VENDEDOR: %s\n", nombre);
+    // muestra ventas por semana
+    for (i = 0; i < 4; i++)
+    {
+        printf("Ventas semana %d: %.2lf\n", i + 1, ventas[i]);
+    }
+    printf("Ventas del mes: %.2lf\n", mes);
+    printf("Comision(5%%): %.2lf\n", comision);
+    printf("Bono: %.2lf\n", bono);
+    printf("Retencion(2%%): %.2lf\n", retencion);
+    printf("Pago del mes: %.2lf\n", pago);
 
     return 0;
 }
