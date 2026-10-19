@@ -47,8 +47,10 @@ int main(void)
         else {
             bono = 0;
         }
-        
-
+       
+        // Calculo de retencion y pago
+        retencion = (comision+bono) * RETENCION;
+        pago = (comision+bono) - retencion;
 
 
     return 0;
