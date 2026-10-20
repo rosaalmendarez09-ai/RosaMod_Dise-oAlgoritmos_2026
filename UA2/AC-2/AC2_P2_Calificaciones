@@ -16,16 +16,14 @@ int main(void){
     float calificaciones[3];
     int i;
 
-
     printf("Ingrese nombre completo: \n");
     fgets(nombre, sizeof(nombre), stdin);
-    nombre[strcspn(nombre,"\n")]='\0';/* code */
+    nombre[strcspn(nombre,"\n")]='\0';
  
     for ( i = 0; i < 3; i++)
     {
        printf("Ingrese calificacion %f: \n", calificaciones);
     }
-    
 
 
 
