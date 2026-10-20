@@ -8,7 +8,7 @@
 
 | Datos de entrada | Proceso | Datos de salida | Limitaciones |
 |---|---|---|---|
-| Nombreysalario | Que salario no sea negativo, calcular rebajos y calcular deducciones | Nombre, salario bruto, neto y deducciones | Numeros positivos, identificar mal las variables |
+| Nombre y salario | Que salario no sea negativo, calcular rebajos y calcular deducciones | Nombre, salario bruto, neto y deducciones | Numeros positivos, identificar mal las variables |
 
 **Ejecución con los datos del ejemplo:**
 
@@ -18,7 +18,7 @@
 
 | Datos de entrada | Proceso | Datos de salida | Limitaciones |
 |---|---|---|---|
-|  |  |  |  |
+| Nombre, tres calificaciones | Cada calificion debe estar en rango 0-100,calcular promedio y calificacion mayor y determinar condicion | Nombre de estudiante, calificaciones, promedio, nota mas alta y condicion | Solo numeros positivos, y un solo estudiante a la vez |
 
 **Ejecución con los datos del ejemplo:**
 
