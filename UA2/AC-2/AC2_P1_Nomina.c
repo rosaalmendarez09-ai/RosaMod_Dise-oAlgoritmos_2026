@@ -9,6 +9,8 @@ renta (10 %, solo si el salario bruto supera 800).
 dos decimales y los montos alineados.*/
 
 #include <stdio.h>
+#include <string.h>
+
 #define CAJA 0.095
 #define IESS 0.025
 #define RENTA 0.10
@@ -17,9 +19,27 @@ int main(void){
     char nombre[50];
     double salario, descuentos, bruto, caja, iess, renta, neto; 
 
-    printf("Ingrese nombre completo");
+   do
+   {
+    printf("Ingrese nombre completo: ");
     fgets(nombre, sizeof(nombre), stdin);
-    nombre[strcspn(nombre,"\n")]='\0';
+    nombre[strcspn(nombre,"\n")]='\0';/* code */
+
+    if ((strlen(nombre) == 0))
+    {
+       printf("Nombre vacio..\n"); /* code */
+    }
+    
+   } while (strlen(nombre) == 0);
+   
+    
+
+
+
+
+
+
+
 
     
 
