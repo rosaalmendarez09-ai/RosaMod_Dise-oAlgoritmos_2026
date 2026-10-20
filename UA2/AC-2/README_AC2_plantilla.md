@@ -12,7 +12,7 @@
 
 **Ejecución con los datos del ejemplo:**
 
-![Ejecución](captura_p.png)
+![Ejecución](calculo_nomina.png)
 
 ## Problema 2 · Calificaciones (AC2_P2_Calificaciones.c)
 
@@ -22,7 +22,7 @@
 
 **Ejecución con los datos del ejemplo:**
 
-![Ejecución](captura_p.png)
+![Ejecución](calificaciones_estudiantiles.png)
 
 ## Problema 3 · Compras (AC2_P3_Compras.c)
 
