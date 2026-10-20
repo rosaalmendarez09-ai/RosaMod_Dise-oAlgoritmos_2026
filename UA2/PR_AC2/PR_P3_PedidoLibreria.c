@@ -11,74 +11,70 @@ impuesto + envío).
 #include <stdio.h>
 #include <string.h>
 
+// CONSTANTES: FUNCIONES GLOBALES
 #define CENTINELA "FIN"
 #define CENTINELA2 "fin"
-#define AnchoP 50
+#define LIBROS 10
+#define ANCHOP 50
 
 int main(void){
-    char titulos[10][AnchoP], decision[3];
-    int cantidad, maximo, cantidadT;
-    double precio, total = 0;
+    char titulos[LIBROS][ANCHOP];
+    int cantidad[LIBROS]/*unidades de libros*/,contadorL=0, totalCantidades = 0;
+    double precio[LIBROS]/*10 precios, total = 0*/,total = 0;
+    char tituloTemp[ANCHOP];
 
-    while (strcmp(CENTINELA, "FIN") = 0 || strcmp(CENTINELA, "fin") == 0)
+    // LECTURA PREVIA
+    printf("Ingrese el titulo del libro ( \"fin\" para terminar). \n");
+    fgets(tituloTemp, sizeof(tituloTemp), stdin);//Guarda texto en tituloTemp
+    tituloTemp[strcspn(tituloTemp, "\n")] ='\0';//Elimina salto de linea por default
+
+    // INICIO PARA VERIFICAR CENTINELA
+    while (strcmp(CENTINELA, "FIN") != 0/*si lo encuentra regresa 0*/ && strcmp(CENTINELA2, "fin") != 0 && contadorL < LIBROS)/*Si contador es menor a 10*/
     {
-        for (maximo = 0; maximo < 10; maximo++)
-        {
-            printf("Desea agregar libro?: ");
-            scanf("%2s", decision);
-
-            if (strcspn(decision, "SI") == 0)
-            {
-               printf("Ingrese el titulo del libro: ");
-               fgets(titulos[maximo], sizeof(AnchoP), stdin);
-               titulos[0][strcspn(titulos, "\n")] = '\0';
-
-              //PRECIOS LIBROS
-               do
-               {
-                 printf("Ingrese cantidad de libro: ");
-                 scanf("%lf", &precio);
-                  if (precio < 0)
-                { 
-                    printf("Dato erroneo, ingrese monto correcto.");
-                }
-               } while (precio < 0);
-
-               total += precio;
-
-
-              //CANTIDAD
-                do
-               {
-                 printf("Ingrese cantida de libro: ");
-                 scanf("%lf", &precio);
-                  if (precio < 0)
-                { 
-                    printf("Dato erroneo, ingrese monto correcto.");
-                }
-               } while (precio < 0);
-            
-                cantidadT += precio;
-
-            }
-           else 
-           {
-            break;
-           }
-
-           for (maximo = 0; maximo < 10; maximo++)
-           {
-            printf("libros son: %s", titulos[maximo]);
-           }
-           
-          
-        }
-        
-    }
+        strcpy(titulos[contadorL],tituloTemp);//Guarda titulo en matriz
     
 
+    // VALIDAR PRECIO 
+    do
+    {
+       printf("Ingrese el precio:");
+       scanf("%lf", &precio[contadorL]);
 
+       precio[contadorL] < 0 ? printf("VALOR INCORRECTO") : "VALIDO";
+  
+    } while (precio[contadorL] < 0 );
+    
 
+    // VALIDAR CANTIDADES
+    do
+    {
+       printf("Ingrese la cantidad:");
+       scanf("%d", &cantidad[contadorL]);
+
+       cantidad[contadorL] < 0 ? printf("VALOR INCORRECTO") : "VALIDO";
+  
+    } while (cantidad[contadorL] < 0 );
+
+    while ((getchar()) != '\n') //eliminar saltos de linea 
+
+    // ACUMULADORES: TOTAL PRECIO, TOTAL CANTIDADES
+    totalCantidades += cantidad[contadorL];
+    total = cantidad[contadorL];
+
+    contadorL += 1;
+
+    // volve a solicitar informacion previa
+    printf("Ingrese el titulo del libro ( \"fin\" para terminar). \n");
+    fgets(tituloTemp, sizeof(tituloTemp), stdin);//Guarda texto en tituloTemp
+    tituloTemp[strcspn(tituloTemp, "\n")] ='\0';
+}
+
+for ( contadorL = 0; contadorL < 10; contadorL++)
+{
+   printf("%s\n",titulos[contadorL]);
+   printf("%d\n",cantidad[contadorL]);
+
+}
 
 
     return 0;
