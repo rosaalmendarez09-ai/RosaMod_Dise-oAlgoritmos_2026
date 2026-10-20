@@ -21,7 +21,7 @@ int main(void){
 
    do
    {
-    printf("Ingrese nombre completo: ");
+    printf("Ingrese nombre completo: \n");
     fgets(nombre, sizeof(nombre), stdin);
     nombre[strcspn(nombre,"\n")]='\0';/* code */
 
@@ -32,7 +32,7 @@ int main(void){
     
    } while (strlen(nombre) == 0);
    
-   
+
     // INGRESAR SALARIO Y VALIDAR QUE SEA MAYOR 
     do
     {
@@ -45,21 +45,32 @@ int main(void){
      }
      
     } while (bruto <= 0);
-    
 
+    caja = bruto * CAJA;
+    iess = bruto * IESS;
 
+    // IMPUESTO DE RENTA SI BRUTO ES MAYOR A 800
+    if (bruto > 800)
+    {
+        renta = bruto * RENTA;
+    }
+    else
+    {
+      renta = 0;  /* code */
+    }
 
+    neto = bruto - caja - iess - renta;
 
-
-
-
-
-    
-
-
+    // SALIDA DE DATOS
+    printf("=== COMPROBANTE DE PAGO ===\n");
+    printf("Empleado:        \t%s\n", nombre);
+    printf("Salario bruto:         \t%.2lf \n", bruto);
+    printf("Descuento CAJA(9.5%%): \t%.2lf \n", caja);
+    printf("Descuento IESS(2.5%%): \t%.2lf \n", iess);
+    printf("Descuento RENTA(10%%): \t%.2lf \n", renta);
+    printf("Salario neto:      \t%.2lf \n", neto);
 
     return 0;
-
 }
 
 
