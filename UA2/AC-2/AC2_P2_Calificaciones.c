@@ -16,7 +16,7 @@ la condición.*/
 
 int main(void)
 {
-    char nombre[50];
+    char nombre[50], condicion[15];
     float calificaciones[3], suma = 0, promedio = 0, mayor = 0;
     int i;
 
@@ -25,12 +25,12 @@ int main(void)
     fgets(nombre, sizeof(nombre), stdin);
     nombre[strcspn(nombre, "\n")] = '\0';
 
-    // recibir calificaciones
+    // recibir calificaciones y validar
     for (i = 0; i < 3; i++)
     {
         do
         {
-            printf("Ingrese calificacion %f(0-100): \n", calificaciones[i]);
+            printf("Ingrese calificacion(0-100) %d: \n", i+1);
             scanf("%f", &calificaciones[i]);
 
             if (i < MIN || i > MAX){
@@ -42,7 +42,8 @@ int main(void)
         
     }
 
-    // PROMEDIO
+
+    // PROMEDIO y mayor
     promedio = suma / 3.0;
     mayor = calificaciones[0];
     for ( i = 0; i < 3; i++)
@@ -52,6 +53,27 @@ int main(void)
             mayor = calificaciones[i];/* code */
         }
     }
+
+
+    // Determinar condicion
+    if (promedio >= 70) {
+        strcpy(condicion, "APROBADO");
+    } else if (promedio >= 60) {
+        strcpy(condicion, "EN RIESGO");
+    } else {
+        strcpy(condicion, "NO APROBADO");
+    }
+    
+    // Salida en pantalla
+    printf("\n----- RESULTADOS -----\n");
+    printf("Estudiante: %s\n", nombre);
+    for ( i = 0; i < 3; i++)
+    {
+        printf("Calificaciones: %.1f \n", calificaciones[i]);
+    }
+    printf("Promedio:       %.2f\n", promedio);
+    printf("Nota mas alta:  %.1f\n", mayor);
+    printf("Condicion:    %s\n", condicion);
 
 
         return 0;
