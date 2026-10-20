@@ -1,4 +1,5 @@
-/*1. Reciba el nombre completo del empleado (puede tener espacios; no se acepta un nombre
+/*Sistema calculo de nomina
+1. Reciba el nombre completo del empleado (puede tener espacios; no se acepta un nombre
 vacío).
 2. Reciba el salario bruto, que debe ser mayor que 0; si no, muestra un mensaje y lo vuelve a
 pedir.

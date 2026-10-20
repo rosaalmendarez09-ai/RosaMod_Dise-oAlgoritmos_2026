@@ -8,7 +8,7 @@
 
 | Datos de entrada | Proceso | Datos de salida | Limitaciones |
 |---|---|---|---|
-|  |  |  |  |
+| Nombreysalario | Que salario no sea negativo, calcular rebajos y calcular deducciones | Nombre, salario bruto, neto y deducciones | Numeros positivos, identificar mal las variables |
 
 **Ejecución con los datos del ejemplo:**
 
