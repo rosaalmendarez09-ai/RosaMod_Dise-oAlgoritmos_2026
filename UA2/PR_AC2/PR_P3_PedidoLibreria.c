@@ -11,9 +11,71 @@ impuesto + envío).
 #include <stdio.h>
 #include <string.h>
 
+#define CENTINELA "FIN"
+#define CENTINELA2 "fin"
+#define AnchoP 50
+
 int main(void){
+    char titulos[10][AnchoP], decision[3];
+    int cantidad, maximo, cantidadT;
+    double precio, total = 0;
+
+    while (strcmp(CENTINELA, "FIN") = 0 || strcmp(CENTINELA, "fin") == 0)
+    {
+        for (maximo = 0; maximo < 10; maximo++)
+        {
+            printf("Desea agregar libro?: ");
+            scanf("%2s", decision);
+
+            if (strcspn(decision, "SI") == 0)
+            {
+               printf("Ingrese el titulo del libro: ");
+               fgets(titulos[maximo], sizeof(AnchoP), stdin);
+               titulos[0][strcspn(titulos, "\n")] = '\0';
+
+              //PRECIOS LIBROS
+               do
+               {
+                 printf("Ingrese cantidad de libro: ");
+                 scanf("%lf", &precio);
+                  if (precio < 0)
+                { 
+                    printf("Dato erroneo, ingrese monto correcto.");
+                }
+               } while (precio < 0);
+
+               total += precio;
 
 
+              //CANTIDAD
+                do
+               {
+                 printf("Ingrese cantida de libro: ");
+                 scanf("%lf", &precio);
+                  if (precio < 0)
+                { 
+                    printf("Dato erroneo, ingrese monto correcto.");
+                }
+               } while (precio < 0);
+            
+                cantidadT += precio;
+
+            }
+           else 
+           {
+            break;
+           }
+
+           for (maximo = 0; maximo < 10; maximo++)
+           {
+            printf("libros son: %s", titulos[maximo]);
+           }
+           
+          
+        }
+        
+    }
+    
 
 
 
