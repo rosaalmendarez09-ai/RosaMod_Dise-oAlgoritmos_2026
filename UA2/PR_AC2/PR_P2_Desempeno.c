@@ -18,8 +18,8 @@ Puntaje mas bajo: calidad (8.5)*/
 int main(void)
 {
     char nombre[50], *criterio[3] = {"puntualidad", "calidad", "trabEquipo"};
-    float puntaje[3];
-    int i;
+    float puntaje[3], promedio, suma = 0, menor;
+    int i, masBajo;
 
     // INGRESAR NOMBRE
     printf("Nombre colaborador: ");
@@ -29,38 +29,58 @@ int main(void)
     // SOLICITAR PUNTAJE
     // VALIDAR QUE EL VALOR INGRESADO SEA CORRECTO
     for (i = 0; i < 3; i++)
-    { 
+    {
         do
         {
-            printf("Puntaje %s (0-10):  ", criterio[i]);//solicita puntualidad, calidad y trabEquipo uno por uno
-            scanf("%f", &puntaje[i]);
+            printf("Puntaje %s (0-10):  ", criterio[i]); // solicita puntualidad, calidad y trabEquipo uno por uno
+            scanf("%f", &puntaje[i]);                    // guarda los datos ingresados
 
             if (puntaje[i] < 0 || puntaje[i] > 10)
             {
                 printf("Dato erróneo, vuelva a ingresarlo.\n");
             }
-            else if (puntaje[i] >= EXCELENTE)
+         } while (puntaje[i] < 0 || puntaje[i] > 10);
+            
+                suma += puntaje[i]; // Sumamos los puntajes ingresados
+            }
+
+            // CALCULAR PROMEDIO
+            promedio = suma / 3.0;
+
+            // PUNTAJE MAS BAJO
+            menor = puntaje[0];//asumo que la mas baja esta en la posicion (0)
+            masBajo = 0; //aca guardamos la posicion mas baja
+            for (i = 1; i < 3; i++)//como ya sacamos el primer valor, vamos a empezar a recorrer el arreglo desde la pocision 2 que seria puntaje(1)
+            {
+                if (puntaje[i] < menor)
+                {
+                    menor = puntaje[i];
+                    masBajo = i;
+                }
+            }
+
+            // Muestra de Resultados
+            printf("===============================\n");
+            printf("=== EVALUACION DE DESEMPEÑO ===\n");
+            printf(" Colaborador: %s\n", nombre);
+            printf("Promedio: %.2f\n", promedio);
+            printf("Nivel: ");
+
+            // ESPECIFICAR SU NIVEL
+            if (promedio >= EXCELENTE)
             {
                 printf("EXCELENTE\n");
             }
-            else if (puntaje[i] >= BUENO)
+            else if (promedio >= BUENO)
             {
                 printf("BUENO\n");
             }
             else
             {
-                printf("NECESITA MEJORAR\n");
+                printf("MEJORAR\n");
             }
-        } while (puntaje[i] < 0 || puntaje[i] > 10);
+        
+            printf("Puntaje mas bajo: %.1f\n", menor);
+
+        return 0;
     }
-
-
-
-    // ===========================================
-    // Muestra de Resultados
-    printf("===============================\n");
-    printf("=== EVALUACION DE DESEMPEÑO ===\n");
-    printf(" Colaborador: %s\n", nombre);
-
-    return 0;
-}
