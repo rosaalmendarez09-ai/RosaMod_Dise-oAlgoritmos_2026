@@ -32,6 +32,19 @@ int main(void){
     
    } while (strlen(nombre) == 0);
    
+   
+    // INGRESAR SALARIO Y VALIDAR QUE SEA MAYOR 
+    do
+    {
+     printf("Ingrese salario bruto: ");
+     scanf("%lf", &bruto);
+
+     if (bruto <= 0)
+     {
+        printf("Dato inválida, debe ser mayor que 0.\n");
+     }
+     
+    } while (bruto <= 0);
     
 
 
