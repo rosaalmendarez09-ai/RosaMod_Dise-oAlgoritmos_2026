@@ -22,12 +22,41 @@ int main(void){
     fgets(nombre, sizeof(nombre), stdin);
     nombre[strcspn(nombre,"\n")]='\0';
 
-    do
+    do 
     {
-        printf("Ingrese producto %d:", );
+        printf("Ingrese producto:" );
         fgets(product[i], sizeof(product[i]),stdin); 
+        product[i][strcspn(nombre, "\n")] = '\0';
 
-    } while (condition);
+        //validar precio != negativo
+        do
+        {
+        printf("Ingrese precio producto: \n");
+        scanf("%lf", &precios[i]);
+
+        if (precios[i]<0)
+        {
+            printf("Precio invalido: \n");
+        }
+
+        } while (precios[i] < 0);
+
+
+        // VALIDAR CANTIDAD != 0
+        do
+        {
+           printf("Ingrese cantidad: \n");
+
+           if (cantidades[i] < 0)
+           {
+            printf("Cantidad invalida \n");
+           }
+           
+        } while (cantidades[i] < 0);
+        
+        
+
+    } while ();
     
 
 
