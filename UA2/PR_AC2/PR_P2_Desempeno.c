@@ -17,8 +17,8 @@ Puntaje mas bajo: calidad (8.5)*/
 #define MEJORAR 7
 
 int main(void){
-    char nombre[50];
-    float puntualidad[3], calidad[3], equipo[3];
+    char nombre[50], criterio[3]= {"puntualidad", "calidad", "trabEquipo"};
+    float puntaje[3];
     int i;
 
 
@@ -33,20 +33,25 @@ int main(void){
 //    VALIDAR QUE EL VALOR INGRESADO SEA CORRECTO
 do
 {
-    printf("Puntaje puntualidad %d(0-10): ",i+1);
-    scanf("%f", &puntualidad[i]);
+    printf("Puntaje %s (0-10):  ",criterio[i]);
+    scanf("%f", &puntaje[i]);
 
-    printf("Puntaje calidad %d(0-10): ",i+1);
-    scanf("%f", &calidad[i]);
 
-    printf("Puntaje trabajo %d(0-10): ",i+1);
-    scanf("%f", &equipo[i]);
-
-    if (puntajes[i] < 0)
-    {
-       printf("Dato erroneo, no puede ser negativo, vuelva a introducir dato: \n");
-    }
-} while (puntajes[i] < 0);
+   if (condition)
+   {
+    /* code */
+   }
+   else if (condition)
+   {
+    /* code */
+   }
+   else
+   {
+    /* code */
+   }
+   
+    
+} while (puntaje[i] < 0);
 
    }
 
