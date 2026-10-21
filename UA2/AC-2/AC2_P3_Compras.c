@@ -20,17 +20,17 @@ int main(void){
     char nombre[50], resp;
     char product[MAX][NOM];
     double precios[MAX], subProduct, totalDesc, subtotal, impuesto, totalPagar;
-    int cantidades[MAX], i= 0, totalP = 0 ;
+    int cantidades[MAX], i = 0, totalP = 0 ;
 
     printf("Ingrese nombre completo: \n");
     fgets(nombre, sizeof(nombre), stdin);
     nombre[strcspn(nombre,"\n")]='\0';
 
     do 
-    {
+    {   
         printf("Ingrese producto:" );
         fgets(product[i], sizeof(product[i]),stdin); 
-        product[i][strcspn(nombre, "\n")] = '\0';
+        product[i][strcspn(product, "\n")] = '\0';
 
         //validar precio != negativo
         do
@@ -56,12 +56,12 @@ int main(void){
             printf("Cantidad invalida \n");
            }
            
-        } while (cantidades[i] < 0);
+           } while (cantidades[i] < 0);
 
         // calculo producto subtotal
         subProduct = precios[i] * cantidades[i];
         
-        printf("Subtotal: %.2f\n", subtotal);
+        printf("Subtotal: %.2f\n", subProduct);
 
 
         // calcular compra subtotal
