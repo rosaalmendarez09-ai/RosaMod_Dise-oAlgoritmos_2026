@@ -100,11 +100,11 @@ int main(void)
    {
     totalDesc = 0;
    }
-   else if (subtotal >= 100 && subtotal < 500);
+   else if (subtotal >= 100 && subtotal < 500)
    {
     totalDesc = subtotal * 0.05; //5%
    }
-   else if (subtotal >= 500 && subtotal < 1000);
+   else if (subtotal >= 500 && subtotal < 1000)
    {
      totalDesc = subtotal * 0.10;//10%
    }
@@ -113,6 +113,12 @@ int main(void)
     totalDesc = subtotal * 0.15;//15%
    }
    
+   //Monto a pagar con el descuento
+   totalPagar = subtotal - totalDesc;
+
+
+
+
 
     printf("===== FACTURA =====\n");
     printf("Cliente: %s\n", nombre);
