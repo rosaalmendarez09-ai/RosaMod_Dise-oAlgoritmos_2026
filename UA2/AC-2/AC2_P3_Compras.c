@@ -13,6 +13,7 @@ y el total a pagar.*/
 
 #include <stdio.h>
 #include <string.h>
+
 #define MAX 10
 #define NOM 50
 
@@ -88,7 +89,7 @@ int main(void)
                 } while (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n');
             }
 
-     } while (resp == 'S' || resp == 's'); && totalP < MAX);
+     } while ((resp == 'S' || resp == 's') && totalP < MAX);
 
      return 0;
 }
