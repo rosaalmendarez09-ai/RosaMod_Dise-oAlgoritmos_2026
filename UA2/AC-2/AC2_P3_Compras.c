@@ -16,82 +16,79 @@ y el total a pagar.*/
 #define MAX 10
 #define NOM 50
 
-int main(void){
+int main(void)
+{
     char nombre[50], resp;
     char product[MAX][NOM];
-    double precios[MAX], subProduct, totalDesc, subtotal, impuesto, totalPagar;
-    int cantidades[MAX], i = 0, totalP = 0 ;
+    double precios[MAX], subProduct = 0, totalDesc = 0, subtotal = 0, impuesto, totalPagar = 0;
+    int cantidades[MAX], i = 0, totalP = 0;
 
     printf("Ingrese nombre completo: \n");
     fgets(nombre, sizeof(nombre), stdin);
-    nombre[strcspn(nombre,"\n")]='\0';
+    nombre[strcspn(nombre, "\n")] = '\0';
 
-    do 
-    {   
-        printf("Ingrese producto:" );
-        fgets(product[i], sizeof(product[i]),stdin); 
-        product[i][strcspn(product, "\n")] = '\0';
+    do
+    {
+        printf("Ingrese producto: ");
+        fgets(product[i], sizeof(product[i]), stdin);
+        product[i][strcspn(product[i], "\n")] = '\0';
 
-        //validar precio != negativo
+        // validar precio != negativo
         do
         {
-        printf("Ingrese precio producto: \n");
-        scanf("%lf", &precios[i]);
+            printf("Ingrese precio producto: ");
+            scanf("%lf", &precios[i]);
 
-        if (precios[i]<0)
-        {
-            printf("Precio invalido: \n");
-        }
+            if (precios[i] < 0)
+            {
+                printf("Precio invalido. \n");
+            }
 
         } while (precios[i] < 0);
-
 
         // VALIDAR CANTIDAD != 0
         do
         {
-           printf("Ingrese cantidad: \n");
-           scanf("%lf", &cantidades[i]);
+            printf("Ingrese cantidad: ");
+            scanf("%d", &cantidades[i]);
 
-           if (cantidades[i] < 0)
-           {
-            printf("Cantidad invalida \n");
-           }
-           
-           } while (cantidades[i] < 0);
+            if (cantidades[i] < 0)
+            {
+                printf("Cantidad invalida \n");
+            }
+
+        } while (cantidades[i] < 0);
 
         // calculo producto subtotal
         subProduct = precios[i] * cantidades[i];
-        
         printf("Subtotal: %.2f\n", subProduct);
-
 
         // calcular compra subtotal
         subtotal += subProduct;
 
+
         // productos ingresados
-        totalP++; 
+        totalP++;
         i++;
 
-         } while (getchar() != '\n');
-       
-    //     if (totalP < MAX)
-    //     {
-    //         do
-    //         {
-    //         printf("Desea agregar mas S/N: \n");
-    //         scanf("%c", &resp)
-    //         if (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n')
-    //         {
-    //         printf("Formato no valido");
-    //         }
-            
-    //         } while (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n');
-            
-    //     }
+        while (getchar() != '\n') //limpiar el salto 
         
+            if (totalP < MAX)//MAX 10 PRODUCTOS
+            {
+                do
+                {
+                    printf("Desea agregar mas productos S/N: \n");
+                    scanf("%c", &resp);
 
-    // } while (resp == 'S' || resp == 's') && totalP < MAX);
-    
+                    if (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n')
+                    {
+                        printf("Formato no valido");
+                    }
 
-    return 0;
+                } while (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n');
+            }
+
+     } while (resp == 'S' || resp == 's'); && totalP < MAX);
+
+     return 0;
 }
