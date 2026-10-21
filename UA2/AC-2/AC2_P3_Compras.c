@@ -21,7 +21,7 @@ int main(void)
 {
     char nombre[50], resp;
     char product[MAX][NOM];
-    double precios[MAX], subProduct = 0, totalDesc = 0, subtotal = 0, impuesto, totalPagar = 0;
+    double precios[MAX], subProduct = 0, totalDesc = 0, subtotal = 0, impuesto = 0, totalPagar = 0;
     int cantidades[MAX], i = 0, totalP = 0;
 
     printf("Ingrese nombre completo: \n");
@@ -30,6 +30,7 @@ int main(void)
 
     do
     {
+        
         printf("Ingrese producto: ");
         fgets(product[i], sizeof(product[i]), stdin);
         product[i][strcspn(product[i], "\n")] = '\0';
@@ -37,7 +38,8 @@ int main(void)
         // validar precio != negativo
         do
         {
-            printf("Ingrese precio producto: ");
+             
+            printf("Ingrese precio unitario: ");
             scanf("%lf", &precios[i]);
 
             if (precios[i] < 0)
@@ -47,9 +49,11 @@ int main(void)
 
         } while (precios[i] < 0);
 
-        // VALIDAR CANTIDAD != 0
+        // VALIDAR CANTIDAD != 0s
+
         do
         {
+            
             printf("Ingrese cantidad: ");
             scanf("%d", &cantidades[i]);
 
@@ -66,20 +70,19 @@ int main(void)
 
         // calcular compra subtotal
         subtotal += subProduct;
-
-
         // productos ingresados
         totalP++;
         i++;
 
-        while (getchar() != '\n') //limpiar el salto 
+        while (getchar() != '\n'); //limpiar el salto 
         
-            if (totalP < MAX)//MAX 10 PRODUCTOS
+            if (cantidades[i] < MAX)//MAX 10 PRODUCTOS
             {
                 do
                 {
                     printf("Desea agregar mas productos S/N: \n");
                     scanf("%c", &resp);
+                    while (getchar() != '\n') //limpiar salto
 
                     if (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n')
                     {
@@ -89,7 +92,7 @@ int main(void)
                 } while (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n');
             }
 
-     } while ((resp == 'S' || resp == 's') && totalP < MAX);
+    } while ((resp == 'S' || resp == 's') && totalP < MAX);
 
      return 0;
 }
