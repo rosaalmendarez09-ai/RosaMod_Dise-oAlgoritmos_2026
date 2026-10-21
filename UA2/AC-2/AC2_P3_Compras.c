@@ -72,29 +72,26 @@ int main(void){
         totalP++; 
         i++;
 
-        while (getchar() != '\n')
+         } while (getchar() != '\n');
        
-        if (totalP < MAX)
-        {
-            do
-            {
-            printf("Desea agregar mas S/N: \n");
-            scanf("%c", &resp)
-            if (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n')
-            {
-            printf("Formato no valido");
-            }
+    //     if (totalP < MAX)
+    //     {
+    //         do
+    //         {
+    //         printf("Desea agregar mas S/N: \n");
+    //         scanf("%c", &resp)
+    //         if (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n')
+    //         {
+    //         printf("Formato no valido");
+    //         }
             
-            } while (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n');
+    //         } while (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n');
             
-        }
+    //     }
         
 
-    } while (resp == 'S' || resp == 's') && totalP < MAX);
+    // } while (resp == 'S' || resp == 's') && totalP < MAX);
     
-
-
-
 
     return 0;
 }
