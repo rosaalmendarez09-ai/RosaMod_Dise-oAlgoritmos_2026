@@ -28,7 +28,7 @@
 
 | Datos de entrada | Proceso | Datos de salida | Limitaciones |
 |---|---|---|---|
-|  |  |  |  |
+|  nombre, precios de los productos| Realizar calculos de montos ingresados | Totales por productos subtotal, descuento, impuestos | Agregar valores negativos, varianbles incorrectas  |
 
 **Ejecución con los datos del ejemplo:**
 

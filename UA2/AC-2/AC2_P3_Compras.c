@@ -1,19 +1,23 @@
-/* 1. Reciba el nombre completo del empleado (puede tener espacios; no se acepta un nombre
-vacío).
-2. Reciba el salario bruto, que debe ser mayor que 0; si no, muestra un mensaje y lo vuelve a
-pedir.
-3. Calcule los descuentos sobre el salario bruto: CAJA (9.5 %), IESS (2.5 %) e impuesto sobre la
-renta (10 %, solo si el salario bruto supera 800).
-4. Calcule el salario neto (bruto menos todos los descuentos).
-5. Muestre un comprobante con el nombre, el salario bruto, cada descuento y el salario neto, con
-dos decimales y los montos alineados.*/
+/*1. Reciba el nombre del cliente.
+2. Permita registrar varios productos (máximo 10): nombre (puede tener espacios), precio
+unitario y cantidad. Después de cada producto pregunta si desea agregar otro (S/N); solo
+acepta S o N (mayúscula o minúscula).
+3. Valide que el precio y la cantidad sean positivos.
+4. Muestre el subtotal de cada producto (precio × cantidad) al ingresarlo y acumule el total.
+5. Aplique el descuento según el total: menos de 100, sin descuento; de 100 a menos de 500, 5 %;
+de 500 a 1000, 10 %; más de 1000, 15 %.
+6. Calcule el total con descuento y el impuesto (13 % sobre el total con descuento).
+7. Muestre una factura con el cliente, el detalle de cada producto (nombre, precio, cantidad y
+subtotal), la cantidad de productos, el subtotal, el descuento, el total con descuento, el impuesto
+y el total a pagar.*/
 
 #include <stdio.h>
+#include <string.h>
 #define MAX 10
 #define NOM 50
 
 int main(void){
-    char nombre[50];
+    char nombre[50], resp;
     char product[MAX][NOM];
     double precios[MAX], subProduct, totalDesc, subtotal, impuesto, totalPagar;
     int cantidades[MAX], i= 0, totalP = 0 ;
@@ -53,14 +57,43 @@ int main(void){
            }
            
         } while (cantidades[i] < 0);
+
+        // calculo producto subtotal
+        subProduct = precios[i] * cantidades[i];
         
+        printf("Subtotal: %.2f\n", subtotal);
+
+
+        // calcular compra subtotal
+        subtotal += subProduct;
+
+        // productos ingresados
+        totalP++; 
+        i++;
+
+        while (getchar() != '\n')
+       
+        if (totalP < MAX)
+        {
+            do
+            {
+            printf("Desea agregar mas S/N: \n");
+            scanf("%c", &resp)
+            if (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n')
+            {
+            printf("Formato no valido");
+            }
+            
+            } while (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n');
+            
+        }
         
 
-    } while ();
+    } while (resp == 'S' || resp == 's') && totalP < MAX);
     
 
 
 
 
-
+    return 0;
 }
