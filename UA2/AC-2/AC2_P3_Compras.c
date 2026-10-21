@@ -50,6 +50,7 @@ int main(void){
         do
         {
            printf("Ingrese cantidad: \n");
+           scanf("%lf", &cantidades[i]);
 
            if (cantidades[i] < 0)
            {
