@@ -31,7 +31,7 @@ int main(void)
     do
     {
         
-        printf("Ingrese producto: ");
+        printf("Ingrese producto %d: ", i+1);
         fgets(product[i], sizeof(product[i]), stdin);
         product[i][strcspn(product[i], "\n")] = '\0';
 
@@ -82,7 +82,7 @@ int main(void)
                 {
                     printf("Desea agregar mas productos S/N: \n");
                     scanf("%c", &resp);
-                    while (getchar() != '\n') //limpiar salto
+                    while (getchar() != '\n'); //limpiar salto
 
                     if (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n')
                     {
@@ -93,6 +93,33 @@ int main(void)
             }
 
     } while ((resp == 'S' || resp == 's') && totalP < MAX);
+
+    //Aplicando los descuentos
+
+   if (subtotal > 100)
+   {
+    totalDesc = 0;
+   }
+   else if (subtotal >= 100 && subtotal < 500);
+   {
+    totalDesc = subtotal * 0.05; //5%
+   }
+   else if (subtotal >= 500 && subtotal < 1000);
+   {
+     totalDesc = subtotal * 0.10;//10%
+   }
+   else
+   {
+    totalDesc = subtotal * 0.15;//15%
+   }
+   
+
+    printf("===== FACTURA =====\n");
+    printf("Cliente: %s\n", nombre);
+    printf("Producto\n");
+    printf("===== FACTURA =====");
+    printf("===== FACTURA =====");
+
 
      return 0;
 }
