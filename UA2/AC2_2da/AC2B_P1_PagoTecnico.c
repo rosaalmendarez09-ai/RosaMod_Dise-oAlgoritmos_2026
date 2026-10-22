@@ -21,10 +21,10 @@ el bruto, el seguro y el neto, con dos decimales y alineados.*/
 
 int main(void){
 
-    //creo variables para datos de entrada y salida
+    //creo variables para datos de entrada y salida, calcular salario
    char nombre[50];
-   int horas;
-   double tarifaHora, bruto, extra, seguro, neto;
+   int horas, jornada ;
+   double tarifaHora, bruto= 0, extra = 0, seguro = 0 , neto = 0, ordinarias = 0 ;
 
     do
     {//ingresar nombre: Jose Mora
@@ -51,7 +51,7 @@ int main(void){
      
     } while (horas <= 0 || horas > MAX);
 
-
+    
 
     //solicita tarifa, guarda con scanf y valida mayor 0
      do
@@ -63,22 +63,40 @@ int main(void){
      {
         printf("Dato inválida, debe ser mayor que 0.\n");
      }
-     
     } while (tarifaHora <= 0);
 
 
+     // Separar las horas ordinarias de las extraordinarias
     if (horas > JORNADA)
     {
-       extra = horas * RECARGO;
+       extra = horas- JORNADA;
+       ordinarias = horas - extra ;
     }
     else
     {
         extra = 0;
+        ordinarias = horas;
+
     }
+      
+    //calculo de las estras con el recargo del 1.5
+     extra = extra * (tarifaHora* RECARGO);
     
-    bruto = horas + extra;
-    seguro *= bruto;
-    neto = bruto - extra;
+  //=====================================
+     // Calcular salario bruto, seguro social y salario neto
+    ordinarias = ordinarias * tarifaHora;
+    bruto = ordinarias + extra;
+    seguro = bruto * TASA;
+    neto = bruto - seguro;
+   
+   //salidas     
+    printf("======== COMPROBANTE SEMANAL ========\n");
+    printf("Tecnico: \t%s\n", nombre);
+    printf("Horas ordinarias(48h): \t%.2lf\n",ordinarias);
+    printf("Horas extras(4h): \t%.2lf\n",extra);
+    printf("Salario bruto:    \t%.2lf\n",bruto);
+    printf("Seguro social:    \t%.2lf\n",seguro);
+    printf("Salario neto:     \t%.2lf\n",neto);
 
 
 
