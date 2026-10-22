@@ -76,20 +76,24 @@ int main(void){
     {
         extra = 0;
         ordinarias = horas;
-
     }
       
     //calculo de las estras con el recargo del 1.5
      extra = extra * (tarifaHora* RECARGO);
     
   //=====================================
-     // Calcular salario bruto, seguro social y salario neto
+     // Calcular salario bruto, seguro social y salario neto, ordinario
     ordinarias = ordinarias * tarifaHora;
     bruto = ordinarias + extra;
     seguro = bruto * TASA;
     neto = bruto - seguro;
    
-   //salidas     
+//Tecnico:                  Jose Mora 
+/*Horas ordinarias (48 h):     120000.00 
+Horas extra ( 4 h):           15000.00 
+Salario bruto:               135000.00 
+Seguro social (10.5%):        14175.00 
+Salario neto:                120825.00*/    
     printf("======== COMPROBANTE SEMANAL ========\n");
     printf("Tecnico: \t%s\n", nombre);
     printf("Horas ordinarias(48h): \t%.2lf\n",ordinarias);
@@ -97,9 +101,6 @@ int main(void){
     printf("Salario bruto:    \t%.2lf\n",bruto);
     printf("Seguro social:    \t%.2lf\n",seguro);
     printf("Salario neto:     \t%.2lf\n",neto);
-
-
-
 
     return 0;
 }
