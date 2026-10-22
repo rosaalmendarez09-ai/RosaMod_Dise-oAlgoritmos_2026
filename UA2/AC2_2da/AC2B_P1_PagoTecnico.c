@@ -28,23 +28,57 @@ int main(void){
 
     do
     {//ingresar nombre: Jose Mora
-        printf("Nombre del tecnico: ");
+    printf("Nombre del tecnico: \n");
         fgets(nombre, sizeof(nombre), stdin);
-        nombre[strcspn(nombre,"/n")]='\0';
+        nombre[strcspn(nombre,"\n")]='\0';
 
         if (strlen(nombre)==0)//validar que el nombre no quede vacio
         {
-              printf("Nombre vacio, ingrese nuevamente ");
+              printf("Nombre vacio, ingrese nuevamente.\n");
         }
     } while (strlen(nombre)==0);//se regresa si el nombre esta vacio y repite el ciclo
 
-   
+
+     do//solicita horas trabajadas, guarda scanf y valida el rango
+    {
+     printf("Ingrese horas trabajadas: ");
+     scanf("%d", &horas);
+
+     if (horas <= 0 || horas > MAX)
+     {
+        printf("Dato invalido (1-60).\n");
+     }
+     
+    } while (horas <= 0 || horas > MAX);
+
+
+
+    //solicita tarifa, guarda con scanf y valida mayor 0
+     do
+    {
+     printf("Ingrese tarifa por hora: ");
+     scanf("%lf", &tarifaHora);
+
+     if (tarifaHora <= 0)
+     {
+        printf("Dato inválida, debe ser mayor que 0.\n");
+     }
+     
+    } while (tarifaHora <= 0);
+
+
+    if (horas > JORNADA)
+    {
+       extra = horas * RECARGO;
+    }
+    else
+    {
+        extra = 0;
+    }
     
-    
-
-
-
-
+    bruto = horas + extra;
+    seguro *= bruto;
+    neto = bruto - extra;
 
 
 
@@ -52,3 +86,5 @@ int main(void){
     return 0;
 }
 
+//gcc -Wall -Wextra -Werror AC2B_P1_PagoTecnico.c -o AC2B_P1_PagoTecnico 
+//AC2_2da

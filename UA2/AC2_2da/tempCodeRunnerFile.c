@@ -1,0 +1,1 @@
+gcc -Wall -Wextra -Werror AC2B_P1_PagoTecnico.c -o AC2B_P1_PagoTecnico 
