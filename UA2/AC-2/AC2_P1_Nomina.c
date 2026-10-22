@@ -1,4 +1,4 @@
-/*Sistema calculo de nomina
+/*AC2_P1_Nomina.c - Sistema de calculo de nomina
 1. Reciba el nombre completo del empleado (puede tener espacios; no se acepta un nombre
 vacío).
 2. Reciba el salario bruto, que debe ser mayor que 0; si no, muestra un mensaje y lo vuelve a
@@ -15,10 +15,11 @@ dos decimales y los montos alineados.*/
 #define CAJA 0.095
 #define IESS 0.025
 #define RENTA 0.10
+#define SUPERA 800
 
 int main(void){
     char nombre[50];
-    double salario, descuentos, bruto, caja, iess, renta, neto; 
+    double bruto, caja, iess, renta, neto; 
 
    do
    {
@@ -51,7 +52,7 @@ int main(void){
     iess = bruto * IESS;
 
     // IMPUESTO DE RENTA SI BRUTO ES MAYOR A 800
-    if (bruto > 800)
+    if (bruto > SUPERA)
     {
         renta = bruto * RENTA;
     }

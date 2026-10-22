@@ -1,4 +1,5 @@
-/*1. Reciba el nombre completo del estudiante.
+/*AC2_P2_Calificaciones.c
+1. Reciba el nombre completo del estudiante.
 2. Reciba tres calificaciones de 0 a 100 y las guarde en un arreglo. Cada calificación fuera de
 rango se rechaza con un mensaje y se vuelve a pedir.
 3. Calcule el promedio de las tres calificaciones y busque la calificación más alta recorriendo el
@@ -33,10 +34,10 @@ int main(void)
             printf("Ingrese calificacion(0-100) %d: \n", i+1);
             scanf("%f", &calificaciones[i]);
 
-            if (i < MIN || i > MAX){
+            if (calificaciones[i] < MIN || calificaciones[i] > MAX){
                 printf("CALIFICACION INVALIDA(0-100). \n");
             }
-        } while (i < MIN || i > MAX);
+        } while (calificaciones[i] < MIN || calificaciones[i] > MAX);
 
         suma += calificaciones[i];
         
@@ -46,6 +47,7 @@ int main(void)
     // PROMEDIO y mayor
     promedio = suma / 3.0;
     mayor = calificaciones[0];
+
     for ( i = 0; i < 3; i++)
     {
         if (calificaciones[i] > mayor)
@@ -53,6 +55,7 @@ int main(void)
             mayor = calificaciones[i];/* code */
         }
     }
+    
 
 
     // Determinar condicion
@@ -69,10 +72,10 @@ int main(void)
     printf("Estudiante: %s\n", nombre);
     for ( i = 0; i < 3; i++)
     {
-        printf("Calificaciones: %.1f \n", calificaciones[i]);
+        printf("Calificaciones %d: %.1f \n",i+1, calificaciones[i]);
     }
-    printf("Promedio:       %.2f\n", promedio);
-    printf("Nota mas alta:  %.1f\n", mayor);
+    printf("Promedio:        %.2f\n", promedio);
+    printf("Nota mas alta:    %.1f\n", mayor);
     printf("Condicion:    %s\n", condicion);
 
 

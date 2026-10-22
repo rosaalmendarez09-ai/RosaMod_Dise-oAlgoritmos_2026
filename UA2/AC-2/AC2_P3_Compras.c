@@ -1,4 +1,5 @@
-/*1. Reciba el nombre del cliente.
+/*AC2_P3
+1. Reciba el nombre del cliente.
 2. Permita registrar varios productos (máximo 10): nombre (puede tener espacios), precio
 unitario y cantidad. Después de cada producto pregunta si desea agregar otro (S/N); solo
 acepta S o N (mayúscula o minúscula).
@@ -21,8 +22,8 @@ int main(void)
 {
     char nombre[50], resp;
     char product[MAX][NOM];
-    double precios[MAX], subProduct = 0, totalDesc = 0, subtotal = 0, impuesto = 0, totalPagar = 0;
-    int cantidades[MAX], i = 0, totalP = 0;
+    double precios[MAX], subProduct = 0, totalDesc = 0, subtotal = 0, impuesto = 0, totalPagar = 0, pagoF = 0;
+    int cantidades[MAX], i = 0, totalP=0;
 
     printf("Ingrese nombre completo: \n");
     fgets(nombre, sizeof(nombre), stdin);
@@ -42,12 +43,13 @@ int main(void)
             printf("Ingrese precio unitario: ");
             scanf("%lf", &precios[i]);
 
-            if (precios[i] < 0)
+            if (precios[i] <= 0)
             {
                 printf("Precio invalido. \n");
             }
 
-        } while (precios[i] < 0);
+        } while (precios[i] <= 0);
+
 
         // VALIDAR CANTIDAD != 0s
 
@@ -57,12 +59,12 @@ int main(void)
             printf("Ingrese cantidad: ");
             scanf("%d", &cantidades[i]);
 
-            if (cantidades[i] < 0)
+            if (cantidades[i] <= 0)
             {
                 printf("Cantidad invalida \n");
             }
 
-        } while (cantidades[i] < 0);
+        } while (cantidades[i] <= 0);
 
         // calculo producto subtotal
         subProduct = precios[i] * cantidades[i];
@@ -74,19 +76,23 @@ int main(void)
         totalP++;
         i++;
 
-        while (getchar() != '\n'); //limpiar el salto 
+        while (getchar() != '\n'){
+
+        }
         
-            if (cantidades[i] < MAX)//MAX 10 PRODUCTOS
+            if (totalP < MAX)//MAX 10 PRODUCTOS
             {
                 do
                 {
                     printf("Desea agregar mas productos S/N: \n");
                     scanf("%c", &resp);
-                    while (getchar() != '\n'); //limpiar salto
+                    while (getchar() != '\n'){
+
+                    } //limpiar salto
 
                     if (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n')
                     {
-                        printf("Formato no valido");
+                        printf("Formato no valido\n");
                     }
 
                 } while (resp != 'S' && resp != 's' && resp != 'N' && resp != 'n');
@@ -112,19 +118,19 @@ int main(void)
    {
     totalDesc = subtotal * 0.15;//15%
    }
-   
+
    //Monto a pagar con el descuento
    totalPagar = subtotal - totalDesc;
 
+   
+   impuesto = totalPagar * 0.13;
+   pagoF = totalPagar + impuesto;
 
-
-
-
-    printf("===== FACTURA =====\n");
+    printf("***=========== FACTURA ===========***\n");
     printf("Cliente: %s\n", nombre);
-    printf("Producto\n");
-    printf("===== FACTURA =====");
-    printf("===== FACTURA =====");
+    printf("Productos ingresados: %d\n", totalP);
+    printf("%-16s %-10s %-6s %-10s\n", "PRODUCTO" , "PRECIO" , "CANT" , "SUBTOTAL");
+   
 
 
      return 0;
