@@ -49,7 +49,7 @@ UA2/AC2_2da/
 
 ### Ejecución con los datos del ejemplo
 
-![Ejecución del problema 1](recursos/captura_p1.png)
+![Ejecución del problema 1](recursos/AC2B_P1_PagoTecnico.png)
 
 ---
 
