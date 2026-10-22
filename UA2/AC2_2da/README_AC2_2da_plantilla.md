@@ -37,7 +37,7 @@ UA2/AC2_2da/
 
 | Datos de entrada | Proceso | Datos de salida | Limitaciones |
 |---|---|---|---|
-|  |  |  |  |
+| nombre del tecnico, horas trabajadas, tarifa por  hora |  Se utiliza do while para validaciones del nombre, horas que no sean diferentes al limite, se usa constantes para jornada, maximo horas, recargo, etc|se muestra nombre, horas, extras, seguro , salario neto con dos decimales  | Ingresar valores validos, diferentes a cero, unicamente un tecnico por entrada, horas mayores a 0. |
 
 ### Pruebas realizadas
 
@@ -101,15 +101,15 @@ UA2/AC2_2da/
 
 Marque cada punto cambiando `[ ]` por `[x]`.
 
-- [ ] Resolví 2 problemas y los anoté en «Problemas elegidos».
-- [ ] Cada programa compila con `gcc -Wall -Wextra` **sin errores y sin advertencias**.
-- [ ] Probé cada programa con el ejemplo, con un caso límite y con un dato inválido.
-- [ ] La validación compara **el dato leído**, no el contador del ciclo.
-- [ ] Cada límite y cada tasa del enunciado es una **constante** (`#define`).
-- [ ] Cada cadena tiene espacio para todas sus letras **más el `'\0'`**.
-- [ ] Cada programa empieza con comentarios: enunciado, qué se logra, cómo se logra y resultado esperado.
-- [ ] Cada variable y constante tiene un comentario que explica para qué se usa.
-- [ ] Los archivos tienen los nombres pedidos y el README está dentro de `UA2/AC2_2da`.
+- [x ] Resolví 2 problemas y los anoté en «Problemas elegidos».
+- [x ] Cada programa compila con `gcc -Wall -Wextra` **sin errores y sin advertencias**.
+- [x ] Probé cada programa con el ejemplo, con un caso límite y con un dato inválido.
+- [ x] La validación compara **el dato leído**, no el contador del ciclo.
+- [x ] Cada límite y cada tasa del enunciado es una **constante** (`#define`).
+- [ x] Cada cadena tiene espacio para todas sus letras **más el `'\0'`**.
+- [ x] Cada programa empieza con comentarios: enunciado, qué se logra, cómo se logra y resultado esperado.
+- [x ] Cada variable y constante tiene un comentario que explica para qué se usa.
+- [x ] Los archivos tienen los nombres pedidos y el README está dentro de `UA2/AC2_2da`.
 - [ ] Las capturas se ven en GitHub (están en `recursos/` con los nombres de esta plantilla).
 - [ ] Hice commits durante la actividad y un push al final.
 - [ ] Comprimí la carpeta como `Proyecto02_PrimerNombre_PrimerApellido.zip`.
