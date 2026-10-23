@@ -1,5 +1,5 @@
 /*
-1. Reciba el nombre completo del técnico, no se acepta un nombre vacío). 
+1. Reciba el nombre completo del técnico, no se acepta un nombre vacío) poor . 
 2. Reciba las horas trabajadas en la semana (de 1 a 60) y la tarifa por hora (mayor que 0). Un 
 dato inválido muestra un mensaje y se vuelve a pedir. 
 3. Separe las horas: las primeras 48 son ordinarias; las que pasen de 48 son horas extra y se 
@@ -8,6 +8,8 @@ pagan al 150 % de la tarifa.
 salario neto. 
 5. Muestre un comprobante con el nombre, las horas y el pago ordinario, las horas y el pago extra, 
 el bruto, el seguro y el neto, con dos decimales y alineados.*/
+
+
 //agrego las bibliotecas printf, scanf y la de gets, otros
 #include <stdio.h>
 #include <string.h>
@@ -23,7 +25,7 @@ int main(void){
 
     //creo variables para datos de entrada y salida, calcular salario
    char nombre[50];
-   int horas, jornada ;
+   int horas,hExtra,hOrdinarias;
    double tarifaHora, bruto= 0, extra = 0, seguro = 0 , neto = 0, ordinarias = 0 ;
 
     do
@@ -69,21 +71,21 @@ int main(void){
      // Separar las horas ordinarias de las extraordinarias
     if (horas > JORNADA)
     {
-       extra = horas- JORNADA;
-       ordinarias = horas - extra ;
+       hExtra = horas- JORNADA;
+       hOrdinarias = horas - hExtra ;
     }
     else
     {
-        extra = 0;
-        ordinarias = horas;
+        hExtra = 0;
+        hOrdinarias = horas;
     }
       
     //calculo de las estras con el recargo del 1.5
-     extra = extra * (tarifaHora* RECARGO);
+     extra = hExtra * (tarifaHora* RECARGO);
     
   //=====================================
      // Calcular salario bruto, seguro social y salario neto, ordinario
-    ordinarias = ordinarias * tarifaHora;
+    ordinarias = hOrdinarias * tarifaHora;
     bruto = ordinarias + extra;
     seguro = bruto * TASA;
     neto = bruto - seguro;
@@ -96,14 +98,13 @@ Seguro social (10.5%):        14175.00
 Salario neto:                120825.00*/    
     printf("======== COMPROBANTE SEMANAL ========\n");
     printf("Tecnico: \t%s\n", nombre);
-    printf("Horas ordinarias(48h): \t%.2lf\n",ordinarias);
-    printf("Horas extras(4h): \t%.2lf\n",extra);
-    printf("Salario bruto:    \t%.2lf\n",bruto);
-    printf("Seguro social:    \t%.2lf\n",seguro);
-    printf("Salario neto:     \t%.2lf\n",neto);
+    printf("Horas ordinarias(%dh): %.2lf\n",hOrdinarias,ordinarias);
+    printf("Horas extras(%dh):  \t%.2lf\n",hExtra,extra);
+    printf("Salario bruto:     \t%.2lf\n",bruto);
+    printf("Seguro social:     \t%.2lf\n",seguro);
+    printf("Salario neto:      \t%.2lf\n",neto);
 
     return 0;
 }
 
-//gcc -Wall -Wextra -Werror AC2B_P1_PagoTecnico.c -o AC2B_P1_PagoTecnico 
-//AC2_2da
+
