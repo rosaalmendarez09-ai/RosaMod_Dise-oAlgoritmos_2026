@@ -111,6 +111,7 @@ int main(void){
     // mostrar quien estudio mas
     printf("\nEstudio mas: %s (%d horas)\n", nombres[mejor], total[mejor]);
 
+
     // ============Dia con MAS horas (suma por columna)
     //mayor suma inicial en 0
     sumaMayor = 0;
@@ -139,6 +140,8 @@ int main(void){
         }
     }
     
+
+
     // Mostrar el dia con más horas
     printf("Dia con mas horas: %s (%d horas)\n", dias[diaMejor], sumaMayor);
 
@@ -149,6 +152,7 @@ int main(void){
     scanf("%14s", buscado);
     // Marca que todavia no aparece
     encontrado = -1; //Si el for no lo encuentra sigue en -1
+
 
     // Recorrer nombre
     for ( e = 0; e < EST; e++)
