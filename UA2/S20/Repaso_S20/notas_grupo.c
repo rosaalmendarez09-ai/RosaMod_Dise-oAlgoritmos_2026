@@ -47,19 +47,25 @@ int main(void)
     for (i = 0; i < ESTUDIANTES; i++) // for externo para ingresar los nombres(4)
     {
         printf("\nIngrese el nombre del estudiante %d: ", i + 1); // solicito nombre
-        scanf("%14s", nombres[i]);                                // Coloco cantidad de caracteres a usar para evitar desbordamiento y guardo sin & porque es un char
+        scanf("%14s", nombres[i]);// Coloco cantidad de caracteres a usar para evitar desbordamiento y guardo sin & porque es un char
 
-        suma = 0;                          // inicializo aca para que reinicie al empezar cada estudiante y pueda hacer la suma de las notas de cada uno =====================================
+        suma = 0;// inicializo aca para que reinicie al empezar cada estudiante y pueda hacer la suma de las notas de cada uno =====================================
         for (j = 0; j < EVALUACIONES; j++) // for interno para ingresar las tres notas
         {
             do // do-while para validar el rango de las notas
             {
                 printf("Ingrese la nota %d de %s(0-100): ", j + 1, nombres[i]); // solicito notas
-                scanf("%d", &notas[i][j]);                                      // guardo notas
+                scanf("%d", &notas[i][j]);// guardo notas
+
+                //Limpiar salto cuando se ingresa una nota con decimal
+                while ((limpiarSalto = getchar()) != '\n' && limpiarSalto != EOF)
+                {
+                }
 
                 if (notas[i][j] < MIN || notas[i][j] > MAX)
                 {
                     printf("Nota inválida,ingrese nuevamente\n");
+
                 }
             } while (notas[i][j] < MIN || notas[i][j] > MAX);
             suma += (float)notas[i][j]; // aca se suman las notas filas
@@ -126,6 +132,7 @@ int main(void)
     encontrado = -1;
     printf("Nombre del estudiante: ");
     scanf("%14s", busqueda);
+
     for (i = 0; i < ESTUDIANTES; i++)
     {
         if (strcmp(nombres[i], busqueda) == 0)
@@ -135,6 +142,7 @@ int main(void)
         }
     }
 
+    // Buscar condicion
     if (promedio[i] >= APROBADO)
     {
         strcpy(condicion,"APROBADO");
@@ -146,7 +154,5 @@ int main(void)
         printf(" %s\n",condicion);
     }
     
-
-
         return 0;
     }
