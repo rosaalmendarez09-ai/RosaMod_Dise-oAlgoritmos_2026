@@ -40,9 +40,9 @@
 int main(void)
 {
     // Creo variables a utilizar
-    int i = 0, j = 0, iMejor = 0, encontrado = 0, suma, notas[ESTUDIANTES][EVALUACIONES];//Guarda las 4 notas de las evaluaciones
+    int i = 0, j = 0, iMejor = 0, encontrado = 0, notas[ESTUDIANTES][EVALUACIONES];//Guarda las 4 notas de las evaluaciones
     char busqueda[15] /*Aca se guarda temporalmente el nombre a buscar*/, nombres[ESTUDIANTES][15];//Guardar los 4 nombres(una palabra)
-    float  mejorP, promedio[ESTUDIANTES];// Guardar los 4 promedios
+    float  suma, sumaFilas, promEva[3], mejorP, promedio[ESTUDIANTES];// Guardar los 4 promedios
 
 
     for (i = 0; i < ESTUDIANTES; i++) // for externo para ingresar los nombres(4)
@@ -50,27 +50,36 @@ int main(void)
         printf("\nIngrese el nombre del estudiante %d: ", i + 1); // solicito nombre
         scanf("%14s", nombres[i]);// Coloco cantidad de caracteres a usar para evitar desbordamiento y guardo sin & porque es un char
 
-
         suma = 0; // inicializo aca para que reinicie al empezar cada estudiante y pueda hacer la suma de las notas de cada uno =====================================
         for (j = 0; j < EVALUACIONES; j++) // for interno para ingresar las tres notas
         {
-
             do // do-while para validar el rango de las notas
             {
                 printf("Ingrese la nota %d de %s(0-100): ", j + 1, nombres[i]); // solicito notas
                 scanf("%d", &notas[i][j]);                                      // guardo notas
-
                 if (notas[i][j] < MIN || notas[i][j] > MAX)
                 {
                     printf("Nota inválida,ingrese nuevamente\n");
-                }
+                }  
             } while (notas[i][j] < MIN || notas[i][j] > MAX);
-            suma += notas[i][j]; // aca se suman las notas
+            suma += notas[i][j]; // aca se suman las notas filas
         }
-
-        promedio[i] = (float)suma / EVALUACIONES; // aca se saca el promedio, se fuerza notas a convertirse en valor float para que el resultado sea con decimales
+        promedio[i] = suma / EVALUACIONES; // aca se saca el promedio, se fuerza notas a convertirse en valor float para que el resultado sea con decimales
     }
 
+    // SACAR PROMEDIO POR COLUMNAS
+    for ( j = 0; j < EVALUACIONES; j++)
+    {   
+            sumaFilas = 0; //Para iniciar a sumar las notas por columnas cada vuelta reinicia
+
+        for ( i = 0; i < ESTUDIANTES; i++)
+        {
+            sumaFilas += notas[i][j]; //suma notas por columnas
+        }
+        promEva[j] = sumaFilas/ESTUDIANTES; //Guardamos promedios de las evaluaciones
+    }
+     
+    
 
     // SALIDA DE DATOSSS ====================================
     printf("\n===========================================\n");
@@ -90,7 +99,6 @@ int main(void)
         printf("%-8.2f\n", promedio[i]); 
     }
 
-
     mejorP = promedio[0]; // inicializo en la primer casilla
     // Recorrer matriz con for para hallar el mejorP
     for (i = 0; i < ESTUDIANTES; i++)
@@ -105,6 +113,8 @@ int main(void)
     // Imprime mejor promedio
     printf("===========================================\n");
     printf("Mejor promedio: %s (%.2f)\n", nombres[iMejor], mejorP);
+    printf("Mejor promedio de la evaluacion %d: %.2f\n",j+1, promEva[j]);
+   
 
 
 
