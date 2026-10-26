@@ -40,31 +40,51 @@
 int main(void)
 {
     // Creo variables a utilizar
-    int i = 0, j, encontrado = 0, notas[ESTUDIANTES][EVALUACIONES];                                 // Guarda las 4 notas de las evaluaciones
+    int i = 0, j = 0, encontrado = 0,suma, notas[ESTUDIANTES][EVALUACIONES];// Guarda las 4 notas de las evaluaciones
     char busqueda[15] /*Aca se guarda temporalmente el nombre a buscar*/, nombres[ESTUDIANTES][15]; // Guardar los 4 nombres(una palabra)
-    float mayorP, promedio[ESTUDIANTES];                                                            // Guardar los 4 promedios
+    float mayorP, promedio[ESTUDIANTES];// Guardar los 4 promedios
 
-    for (i = 0; i < ESTUDIANTES; i++)//for externo para ingresar los nombres(4)
+    for (i = 0; i < ESTUDIANTES; i++) // for externo para ingresar los nombres(4)
     {
-        printf("\nIngrese el nombre del estudiante %d: ", i + 1);//solicito nombre
-        scanf("%14s", nombres[i]); // Coloco cantidad de caracteres a usar para evitar desbordamiento y guardo sin & porque es un char
+        printf("\nIngrese el nombre del estudiante %d: ", i + 1); // solicito nombre
+        scanf("%14s", nombres[i]);                                // Coloco cantidad de caracteres a usar para evitar desbordamiento y guardo sin & porque es un char
 
-        
-        for (j = 0; j < EVALUACIONES; j++)// for interno para ingresar las tres notas
+        suma = 0;//inicializo aca para que reinicie al empezar cada estudiante y pueda hacer la suma de las notas de cada uno =====================================
+
+        for (j = 0; j < EVALUACIONES; j++) // for interno para ingresar las tres notas
         {
-           
+            
             do // do-while para validar el rango de las notas
             {
-                printf("Ingrese la nota %d de %s(0-100): ", j + 1, nombres[i]);//solicito notas
-                scanf("%d", &notas[i][j]);//guardo notas
+                printf("Ingrese la nota %d de %s(0-100): ", j + 1, nombres[i]); // solicito notas
+                scanf("%d", &notas[i][j]);                                      // guardo notas
 
                 if (notas[i][j] < MIN || notas[i][j] > MAX)
                 {
                     printf("Nota inválida,ingrese nuevamente\n");
                 }
             } while (notas[i][j] < MIN || notas[i][j] > MAX);
+
+        suma += notas[i][j]; //aca se suman las notas
         }
+        promedio[i] = (float)suma / EVALUACIONES;//aca se saca el promedio, se fuerza notas a convertirse en valor float para que el resultado sea con decimales
+    }
+    
+        // SALIDA DE DATOSSS ============= 
+    printf("%-12s %-4s %-4s %-4s %-8s\n","Nombre","N1","N2","N3","Promedio");
+
+
+    for (i = 0; i < ESTUDIANTES; i++)
+    {
+
+        printf("%-12s ", nombres[i]);//imprime nombre a la izquierda
+
+        for (j = 0; j < EVALUACIONES; j++)
+        {
+            printf("%-6d ", notas[i][j]); //imprime notas
+        }
+        printf("%-8.2f\n", promedio[i]); //imprime promedio x notas
     }
 
-        return 0;
-    }
+    return 0;
+}
