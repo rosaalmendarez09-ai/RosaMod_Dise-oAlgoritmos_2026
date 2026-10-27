@@ -40,7 +40,7 @@
 int main(void)
 {
     // Creo variables a utilizar
-    int limpiarSalto, i = 0, j = 0, iMejor = 0, encontrado, notas[ESTUDIANTES][EVALUACIONES];// Guarda las 4 notas de las evaluaciones
+    int limpiarSalto, i = 0, j = 0, iMejor = 0, notas[ESTUDIANTES][EVALUACIONES];// Guarda las 4 notas de las evaluaciones
     char condicion[20], busqueda[15] /*Aca se guarda temporalmente el nombre a buscar*/, nombres[ESTUDIANTES][15]; // Guardar los 4 nombres(una palabra)
     float suma, sumaFilas, promEva[3], mejorP, promedio[ESTUDIANTES];// Guardar los 4 promedios
 
@@ -129,7 +129,6 @@ int main(void)
 
     
     // BUSCAR UN NOMBRE (STRCMP)
-    encontrado = -1;
     printf("Nombre del estudiante: ");
     scanf("%14s", busqueda);
 
