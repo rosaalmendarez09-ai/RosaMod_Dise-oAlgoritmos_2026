@@ -114,10 +114,10 @@ Las capturas de pantalla van en la subcarpeta `capturas/` de cada sesión
 |   S17   | Variables, constantes y entrada/salida       | Aprendi como definir variables y constantes en C  S17 |               [ver](UA2/S17/S17.Constantes_Variables.png)                |   ✅   |
 |   S18   | Operadores, casting e if … else              | Utilizamos casting, operadores, valores logicos     |               [ver](UA2/S18/S.18_descuento.png)                |   ✅   |
 |   S19   | Ciclos y switch                              | Aprendi ciclo while, do- while y switch, en el ejercicio de encontrar lo mas complicado fue que no continuaba donde ingreso el dato erroneo sino que saltaba tres espaciosS19    |               [ver](UA2/S19/S19_switch_break.png) [ver](UA2/S19/repaso/S19.Ejercicio_buscar_repaso.png)               |   ✅   |
-|   S20   | Arreglos, matrices y cadenas                 |En el ejercico de encontrar lo que más me costo fue el salto de linea 53, agregar strcmp en el lugar correcto  |               [ver](UA2/S20/repaso/S20_ParteB_autonoma.png)                |   ✅    |
-|   S21   | Funciones                                    |             |               [ver](UA2/S21/)                |   ⬜   |
-|   S22   | Paso de parámetros por valor y por dirección |             |               [ver](UA2/S22/)                |   ⬜   |
-| S23–S24 | **Actividad de comprobación 2**              |             |               [ver](actividades/A2_Mi_primera_aplicacion/) |   ⬜   |
+|   S20   | Arreglos, matrices y cadenas                 |En el ejercico de encontrar lo que más me costo fue el salto de linea 53, agregar strcmp en el lugar correcto  |               [ver](UA2/S20/repaso/S20_ParteB_autonoma.png)                 |   ✅    |
+|   S21   | Funciones                                    | Trabaje prototipos, paso de parámetros y retorno de valores            |               [ver](UA2/S21/S21_Ejercicio1_conversiones.png) [ver](UA2/S21/S21.Ejercicio2_dado.png)               |   ✅    |
+|   S22   | Paso de parámetros por valor y por dirección |             |               [ver](UA2/S22/)                |  ✅   |
+| S23–S24 | **Actividad de comprobación 2**              |             |               [ver](actividades/A2_Mi_primera_aplicacion/) |   ✅    |
 
 </details>
 
@@ -170,7 +170,7 @@ _(Completar conforme avanza el módulo. Ejemplos de lo que corresponde anotar aq
 
 | Decisión                                    | Qué elegí | Por qué |
 | :------------------------------------------ | :-------- | :------ |
-| Tipo de dato para montos de dinero          |           |         |
+| Tipo de dato para montos de dinero          |  double   |  Es más exacto y guarda más memoria |
 | Cómo valido los datos de entrada            |           |         |
 | Cuándo uso `if … else if` y cuándo `switch` |           |         |
 | Cuándo divido el programa en funciones      |           |         |
@@ -188,8 +188,14 @@ _(Completar conforme avanza el módulo. Ejemplos de lo que corresponde anotar aq
 **Reflexión final** _(escribir al cerrar el módulo; tres preguntas para orientarla):_
 
 1. ¿Qué sé hacer hoy que no sabía el primer día?
+
+Evitar bucles infinitos, limpiar el bufer. Y que scanf necesita &para guardar los datos.
+
 2. Comparando un algoritmo en PSeInt con el mismo programa en C: ¿qué cambió en la
    forma de escribirlo y qué se mantuvo igual en la lógica?
+
+La sintaxis cambia, tipos de datos, las librerias, la logica siento que es la misma en ambos.
+
 3. ¿Qué me propongo seguir aprendiendo por mi cuenta?
 
 ---
@@ -207,7 +213,7 @@ _(Completar conforme avanza el módulo. Ejemplos de lo que corresponde anotar aq
 
 <div align="center">
 
-**Nombre Completo** · @usuario-de-github
+**Rosa Almendarez** · @rosaalmendarez09-ai
 
 Portafolio elaborado durante el módulo CSTI12010 · Instituto Nacional de Aprendizaje · 2026
 
