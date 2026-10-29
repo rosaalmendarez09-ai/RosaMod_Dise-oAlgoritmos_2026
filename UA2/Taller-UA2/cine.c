@@ -40,7 +40,7 @@ int main(void)
     // FOR para una vuelta por compra
     for (i = 0; i < n; i++)
     {
-        printf("Compras %d\n C[liente: ", i + 1);
+        printf("Compras %d\nCliente: ", i + 1);
         scanf("%14s", clientes[i]);
 
         // Leer el tipo de entrada
@@ -56,8 +56,8 @@ int main(void)
     // Calcular el resumen de una pasada
     resumir(cantidades, totales, n, &totalVendido, &posMayor, &conDescuento);
 
-    // Encabezado de
-    printf("\n%-12s%9d%12.2f\n", clientes[i], cantidades[i], totales[i]);
+    // Encabezado de tabla
+    printf("\n%-12s%9s%12s\n", "clientes", "Entradas" , "totales");
 
     // Recorrer las compras
     for (i = 0; i < n; i++)
@@ -100,14 +100,12 @@ double precioEntrada(int tipo)
     switch (tipo)
     {
     case 1:
-        /* code */
         return PRECIO_GENERAL; // RETURN termina la funcion no hace falta el break
 
     case 2:
-        /* code */
         return PRECIO_NINO;
 
-    case 3:
+    default:
         /* code */
         return PRECIO_MAYOR;
     }
