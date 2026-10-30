@@ -30,64 +30,69 @@ int main(void)
     // Resultados resumen
     int posMayor, conDescuento;
 
-    // PORTADA
-    printf("==== venta de Entradas ====\n");
-    printf("Tipos: 1.General 3500, 2.Nino 2500, 3.Adulto Mayor 2000\n");
+    //=================MENÚ EN PANTALLA======================
+    printf("============================\n");
+    printf("====== VENTA ENTRADAS ======");
+    printf("\nTipos de entradas:\n 1.General       3500\n 2.Nino          2500\n 3.Adulto Mayor  2000\n");
 
-    // Leer cantidad de compras -> 4
-    n = leerEntero("Cantidad de compras", 1, MAX_COMPRAS);
+    // cantidad de compras -> 4
+    n = leerEntero("\nCantidad de compras", 1, MAX_COMPRAS);
 
-    // FOR para una vuelta por compra
+    // ============ CLIENTE, TIPO, CANTIDAD ======================
+    // Vuelta x compra
     for (i = 0; i < n; i++)
     {
-        printf("Compras %d\nCliente: ", i + 1);
+        printf("\nCompras %d\n Cliente: ", i + 1);
         scanf("%14s", clientes[i]);
 
         // Leer el tipo de entrada
-        tipo = leerEntero("Tipo", 1, 3); // validar sin usar do-while
+        tipo = leerEntero("Tipo de entrada", 1, 3);
 
         // Leer cantidad de entradas
+        cantidades[i] = leerEntero("Cantidad de entradas", 1, 8);
 
         // Calcular total de la compra
         totales[i] = calculaTotal(tipo, cantidades[i]);
-        cantidades[i] = leerEntero("Entradas", 1, 8); // Valida sin usar do-while
+
+        printf("===============================\n");
     }
+
+    // ==============================================================
 
     // Calcular el resumen de una pasada
     resumir(cantidades, totales, n, &totalVendido, &posMayor, &conDescuento);
 
     // Encabezado de tabla
-    printf("\n%-12s%9s%12s\n", "clientes", "Entradas" , "totales");
+    printf("\n%-12s%9s%12s\n", "clientes", "Entradas", "totales");
 
     // Recorrer las compras
     for (i = 0; i < n; i++)
     {
         // Mostrar fila
         printf("%-12s%9d%12.2f\n", clientes[i], cantidades[i], totales[i]);
-
-        // Total vendido
-        printf("Total vendido: %12.2f\n", totalVendido);
-        // Compra mayor
-        printf("Compra Mayor: %s (%.2f)\n", clientes[posMayor], totales[posMayor]);
-
-        // Compras con descuento
-        printf("Con descuento: %d compra(s)\n", conDescuento);
-
-        // Termina main con el return por valor
-        return 0;
     }
+
+    // Total vendido
+    printf("Total vendido: %12.2f\n", totalVendido);
+    // Compra mayor
+    printf("Compra Mayor: %s (%.2f)\n", clientes[posMayor], totales[posMayor]);
+    // Compras con descuento
+    printf("Con descuento: %d compra(s)\n", conDescuento);
+
+    // Termina main con el return por valor
+    return 0;
 }
 
 // DEFINICION. LeerEntero=================================================
 int leerEntero(const char mensaje[], int minimo, int maximo)
 {
-    // Variable localpara el dato
+    // Variable local para el dato
     int valor;
 
     do
     {
-        printf("%s (%d a %d): ", mensaje, minimo, maximo);
-        scanf("%d", &valor);
+        printf("%s (%d a %d): ", mensaje, minimo, maximo); // aca va ingresar un int
+        scanf("%d", &valor);                               // se guarda el valor que ingresó
     } while (valor < minimo || valor > maximo);
 
     // regresa valor
@@ -131,7 +136,7 @@ void resumir(const int cant[], const double tot[], int n, double *total, int *po
     // Inicializo los tres resultados en la memoria de main
     *total = 0;
     *posMayor = 0;
-    conDescuento = 0;
+    *conDescuento = 0;
 
     // Recorrer las compras
     for (i = 0; i < n; i++)
@@ -143,8 +148,9 @@ void resumir(const int cant[], const double tot[], int n, double *total, int *po
             *posMayor = i;
         }
 
-        if (cant[i] > MIN_DESCUENTO)
+        if (cant[i] >= MIN_DESCUENTO)
+        {
             (*conDescuento)++;
-        
+        }
     }
 }
