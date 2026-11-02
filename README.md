@@ -106,27 +106,27 @@ Las capturas de pantalla van en la subcarpeta `capturas/` de cada sesión
 <details open>
 <summary><b>Unidad 2 · Programación estructurada en C</b> (sesiones 14 a 24)</summary>
 
-| Sesión  | Tema                                         | Qué aprendí |                  Evidencia                   | Estado |
-| :-----: | :------------------------------------------- | :---------- | :------------------------------------------: | :----: |
-|   S14   | Sistemas numéricos | Aprendi sistemas numericos: binarios, decimales,octle y hexadecimales |               [ver](UA2/S14/S14.Sistemas_numericos.png)                |   ✅   |
-|   S15   | Control de versiones con git y GitHub | Creamos repositorio |               [ver](UA2/S15/S.15.Estructura_Repositorio.png) |   ✅   |
-|   S16   | Formato de un programa en C y compilación    | Aprendi gcc para transformar codigo fuente en programas ejecutables |              [ver](UA2/S16/S16_Inicio_C.png)                |   ✅    |
-|   S17   | Variables, constantes y entrada/salida       | Aprendi como definir variables y constantes en C  S17 |               [ver](UA2/S17/S17.Constantes_Variables.png)                |   ✅   |
-|   S18   | Operadores, casting e if … else              | Utilizamos casting, operadores, valores logicos     |               [ver](UA2/S18/S.18_descuento.png)                |   ✅   |
-|   S19   | Ciclos y switch                              | Aprendi ciclo while, do- while y switch, en el ejercicio de encontrar lo mas complicado fue que no continuaba donde ingreso el dato erroneo sino que saltaba tres espaciosS19    |               [ver](UA2/S19/S19_switch_break.png) [ver](UA2/S19/repaso/S19.Ejercicio_buscar_repaso.png)               |   ✅   |
-|   S20   | Arreglos, matrices y cadenas                 |En el ejercico de encontrar lo que más me costo fue el salto de linea 53, agregar strcmp en el lugar correcto  |               [ver](UA2/S20/repaso/S20_ParteB_autonoma.png)                 |   ✅    |
-|   S21   | Funciones                                    | Trabaje prototipos, paso de parámetros y retorno de valores            |               [ver](UA2/S21/S21_Ejercicio1_conversiones.png) [ver](UA2/S21/S21.Ejercicio2_dado.png)               |   ✅    |
-|   S22   | Paso de parámetros por valor y por dirección |             |               [ver](UA2/S22/)                |  ✅   |
-| S23–S24 | **Actividad de comprobación 2**              |             |               [ver](actividades/A2_Mi_primera_aplicacion/) |   ✅    |
+| Sesión  | Tema                                         | Qué aprendí                                                                                                                                                                   |                                         Evidencia                                         | Estado |
+| :-----: | :------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------: | :----: |
+|   S14   | Sistemas numéricos                           | Aprendi sistemas numericos: binarios, decimales,octle y hexadecimales                                                                                                         |                         [ver](UA2/S14/S14.Sistemas_numericos.png)                         |   ✅   |
+|   S15   | Control de versiones con git y GitHub        | Creamos repositorio                                                                                                                                                           |                      [ver](UA2/S15/S.15.Estructura_Repositorio.png)                       |   ✅   |
+|   S16   | Formato de un programa en C y compilación    | Aprendi gcc para transformar codigo fuente en programas ejecutables                                                                                                           |                              [ver](UA2/S16/S16_Inicio_C.png)                              |   ✅   |
+|   S17   | Variables, constantes y entrada/salida       | Aprendi como definir variables y constantes en C S17                                                                                                                          |                        [ver](UA2/S17/S17.Constantes_Variables.png)                        |   ✅   |
+|   S18   | Operadores, casting e if … else              | Utilizamos casting, operadores, valores logicos                                                                                                                               |                             [ver](UA2/S18/S.18_descuento.png)                             |   ✅   |
+|   S19   | Ciclos y switch                              | Aprendi ciclo while, do- while y switch, en el ejercicio de encontrar lo mas complicado fue que no continuaba donde ingreso el dato erroneo sino que saltaba tres espaciosS19 | [ver](UA2/S19/S19_switch_break.png) [ver](UA2/S19/repaso/S19.Ejercicio_buscar_repaso.png) |   ✅   |
+|   S20   | Arreglos, matrices y cadenas                 | En el ejercico de encontrar lo que más me costo fue el salto de linea 53, agregar strcmp en el lugar correcto                                                                 |                       [ver](UA2/S20/repaso/S20_ParteB_autonoma.png)                       |   ✅   |
+|   S21   | Funciones                                    | Trabaje prototipos, paso de parámetros y retorno de valores                                                                                                                   |   [ver](UA2/S21/S21_Ejercicio1_conversiones.png) [ver](UA2/S21/S21.Ejercicio2_dado.png)   |   ✅   |
+|   S22   | Paso de parámetros por valor y por dirección |                                                                                                                                                                               |                                      [ver](UA2/S22/)                                      |   ✅   |
+| S23–S24 | **Actividad de comprobación 2**              |                                                                                                                                                                               |                       [ver](actividades/A2_Mi_primera_aplicacion/)                        |   ✅   |
 
 </details>
 
 <details>
 <summary><b>Unidad 3 · Estructuras de datos</b></summary>
 
-| Sesión | Tema                                       | Qué aprendí | Evidencia | Estado |
-| :----: | :----------------------------------------- | :---------- | :-------: | :----: |
-|        | _(las filas se agregan al iniciar la UA3)_ |             |           |        |
+|    Sesión     | Tema                           | Qué aprendí                                     |                         Evidencia                         | Estado |
+| :-----------: | :----------------------------- | :---------------------------------------------- | :-------------------------------------------------------: | :----: |
+| Taller_metodo | Taller de funciones y punteros | Estructura de funciones y declaracion, punteros | [ver](UA3/Taller_Metodo/UA3_Taller_metodo_ejercicio1.png) |   ✅   |
 
 </details>
 
@@ -168,12 +168,12 @@ representativas: un algoritmo en PSeInt y varios programas en C funcionando.)_
 
 _(Completar conforme avanza el módulo. Ejemplos de lo que corresponde anotar aquí.)_
 
-| Decisión                                    | Qué elegí | Por qué |
-| :------------------------------------------ | :-------- | :------ |
-| Tipo de dato para montos de dinero          |  double   |  Es más exacto y guarda más memoria |
-| Cómo valido los datos de entrada            |           |         |
-| Cuándo uso `if … else if` y cuándo `switch` |           |         |
-| Cuándo divido el programa en funciones      |           |         |
+| Decisión                                    | Qué elegí | Por qué                            |
+| :------------------------------------------ | :-------- | :--------------------------------- |
+| Tipo de dato para montos de dinero          | double    | Es más exacto y guarda más memoria |
+| Cómo valido los datos de entrada            |           |                                    |
+| Cuándo uso `if … else if` y cuándo `switch` |           |                                    |
+| Cuándo divido el programa en funciones      |           |                                    |
 
 ---
 
