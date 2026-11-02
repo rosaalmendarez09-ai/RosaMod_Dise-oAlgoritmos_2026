@@ -53,7 +53,6 @@ int main(void)
     int cantidadTM = 0;     // Cantidad de vehiculos que pagaron la tarifa maxima
     int i;                  // indice general
     int f;                  // indice filas
-    int mayor = 0;          // indice para guardar el mayor cobro
 
     // ENTRADA
     printf("===== Registro de vehiculos (Parqueo) =====\n");
@@ -130,12 +129,11 @@ int main(void)
                 printf("Placa: %s  Cobro: %.2f\n", placas[f], cobro[f]);
             }
         }
-
-        printf("\nEl vehiculo con placa: %s fue el que mas pago, dando un total de: %.2f\n", placas[mayor], mayorPago);
         printf("Cantidad de vehiculos que pagaron la tarifa maxima: %d\n", cantidadTM);
     }
+     printf("El total del dia es: %.2f\n", totalDia);
 
-    return 0;
+    return 0;|
 }
 
 // Definición de función: validacionOpcion
