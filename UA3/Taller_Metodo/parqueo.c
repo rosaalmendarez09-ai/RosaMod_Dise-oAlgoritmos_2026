@@ -133,7 +133,7 @@ int main(void)
     }
      printf("El total del dia es: %.2f\n", totalDia);
 
-    return 0;|
+    return 0;
 }
 
 // Definición de función: validacionOpcion
