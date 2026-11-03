@@ -47,30 +47,28 @@ int main(void)
     int tipo;
     int consumo;
     double subtotal;
+    int recibos = 0;
 
     medidor = leerEntero("Digite el numero de medidor: ", 1000, 9999);
 
-    tipo = leerEntero("Digite el tipo (1:Comercial 2:Residencial): ", 1,2);
+    tipo = leerEntero("Digite el tipo (1:Comercial 2:Residencial): ", 1, 2);
 
-    consumo = leerEntero("Digite el consumo del mes: ", MIN, FIJO); 
+    consumo = leerEntero("Digite el consumo del mes: ", MIN, FIJO);
 
     subtotal = energiaResidencial(consumo);
-    printf("IMPRIME %.2lf\n", subtotal);
-
 
     // SALIDAS
-
-
-
+    printf("IMPRIME %.2lf\n", subtotal);
 
     return 0;
 }
 
 // Definicion de funciones
 
-void limpiar(){
+void limpiar()
+{
     int caracter;
-     while ((caracter = getchar()) != '\n' && caracter != EOF)
+    while ((caracter = getchar()) != '\n' && caracter != EOF)
     {
     }
 }
@@ -81,11 +79,18 @@ int leerEntero(const char mensaje[], int minimo, int maximo)
     // Variable local para el dato
     int valor;
 
-     valor = 0;
+    valor = 0;
     do
     {
-        printf("%s (%d a %d): ", mensaje, minimo, maximo); 
-        scanf("%d", &valor);                             
+        printf("%s (%d a %d): ", mensaje, minimo, maximo);
+        scanf("%d", &valor);
+        limpiar();
+
+        if (valor < minimo || valor > maximo)
+        {
+            printf("Dato erróneo, vuelva a ingresarlo.\n");
+        }
+
     } while (valor < minimo || valor > maximo);
 
     // regresa valor
@@ -94,30 +99,40 @@ int leerEntero(const char mensaje[], int minimo, int maximo)
 
 // ========================================================
 
-double energiaResidencial(int kwh){
+double energiaResidencial(int kwh)
+{
     double monto = 0;
 
     if (kwh <= 200)
     {
-        monto =kwh * TARIF1;
+        monto = kwh * TARIF1;
     }
     else if (kwh <= 400)
     {
         monto = (200 * TARIF1) + ((kwh - 200) * TARIF2);
     }
-    
-    else 
+
+    else
     {
-        monto = (200 * TARIF1) + (200 * TARIF2) + ((kwh - 400)* TARIF3);
+        monto = (200 * TARIF1) + (200 * TARIF2) + ((kwh - 400) * TARIF3);
     }
-    
-return monto;
+
+    return monto;
 }
 
 // ================================
 
-char leerSN(const char mensaje[]){
+char leerSN(const char mensaje[])
+{
+    char respuesta;
 
+    do
+    {
+        printf("%s (S/N): ", mensaje);
+        scanf("%c", &respuesta);
+        limpiar();
 
+    } while (respuesta != 'S' && respuesta != 's' && respuesta != 'N' && respuesta != 'n');
 
+    return respuesta;
 }
