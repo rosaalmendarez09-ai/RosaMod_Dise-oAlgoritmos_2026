@@ -42,6 +42,17 @@ int main(void){
     double compra, pagado, vuelto;
     char respuesta;
 
+    do
+    {
+        /* code */
+
+
+
+
+
+    } while (respuesta == 'S' || respuesta == 's');
+    
+
     
 
 
@@ -87,7 +98,22 @@ int valor;
 
 // ===============funcion leerSN======================
 char leerSN(const char mensaje[]){
+  char continuar;
 
+    do
+    {
+        printf("%s: ", mensaje);
+        scanf("%c", &continuar);
+        limpiar();
+
+        if (continuar != 'S' && continuar != 's' && continuar != 'N' && continuar != 'n')
+        {
+            printf("Dato erróneo, vuelva a ingresarlo.\n");
+        }
+
+    } while (continuar != 'S' && continuar != 's' && continuar != 'N' && continuar != 'n');
+
+    return continuar;
 
 
 
