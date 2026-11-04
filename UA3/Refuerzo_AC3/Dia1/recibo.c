@@ -43,22 +43,47 @@ double calcularRecibo(int tipo, int kwh);
 
 int main(void)
 {
-    int medidor;
-    int tipo;
+    int medidor, medidorMayor = 0;
+    int tipo, recibosTotal = 0;
     int consumo;
-    double subtotal;
-    int recibos = 0;
+    double totalFacturado, montoMayor = 0, totalFinal = 0;
+    char continuar;
 
-    medidor = leerEntero("Digite el numero de medidor: ", 1000, 9999);
+    do
+    {
+        medidor = leerEntero("Digite el numero de medidor: ", 1000, 9999);
 
-    tipo = leerEntero("Digite el tipo (1:Comercial 2:Residencial): ", 1, 2);
+        tipo = leerEntero("Digite el tipo 1:Comercial 2:Residencial ", 1, 2);
 
-    consumo = leerEntero("Digite el consumo del mes: ", MIN, FIJO);
+        consumo = leerEntero("Digite el consumo del mes: ", MIN, FIJO);
 
-    subtotal = energiaResidencial(consumo);
+        totalFacturado = calcularRecibo(tipo, consumo);
 
-    // SALIDAS
-    printf("IMPRIME %.2lf\n", subtotal);
+        totalFinal += totalFacturado;
+
+        if (recibosTotal == 0 || totalFacturado > montoMayor)
+        {
+            montoMayor = totalFacturado;
+            medidorMayor = medidor;
+        }
+
+
+        recibosTotal++; // Para contar los reciboes esmitidos
+        continuar = leerSN("Desea ingresar otro recibo?(S/N)");
+
+    } while (continuar == 'S' || continuar == 's');
+
+    // ===============================================
+    // SALIDAS =======================================
+
+    printf("\n========================================\n");
+    printf("\t RESUMEN\n");
+    printf(" Total de recibos emitidos: %d\n", recibosTotal);
+    printf(" Total facturado: ₡%.2lf\n", totalFinal);
+    if (recibosTotal > 0)
+    {
+        printf(" Medidor con el recibo mayor: %d (₡%.2lf)\n", medidorMayor, montoMayor);
+    }
 
     return 0;
 }
@@ -100,21 +125,21 @@ int leerEntero(const char mensaje[], int minimo, int maximo)
 // ========================================================
 
 double energiaResidencial(int kwh)
-{
+{ //Se van restando 
     double monto = 0;
 
     if (kwh <= 200)
     {
-        monto = kwh * TARIF1;
+        monto = kwh * TARIF1; //₡80
     }
     else if (kwh <= 400)
     {
-        monto = (200 * TARIF1) + ((kwh - 200) * TARIF2);
+        monto = (200 * TARIF1) + ((kwh - 200) * TARIF2); //₡110
     }
 
     else
     {
-        monto = (200 * TARIF1) + (200 * TARIF2) + ((kwh - 400) * TARIF3);
+        monto = (200 * TARIF1) + (200 * TARIF2) + ((kwh - 400) * TARIF3); //₡150
     }
 
     return monto;
@@ -128,11 +153,47 @@ char leerSN(const char mensaje[])
 
     do
     {
-        printf("%s (S/N): ", mensaje);
+        printf("%s: ", mensaje);
         scanf("%c", &respuesta);
         limpiar();
+
+        if (respuesta != 'S' && respuesta != 's' && respuesta != 'N' && respuesta != 'n')
+        {
+            printf("Dato erróneo, vuelva a ingresarlo.\n");
+        }
 
     } while (respuesta != 'S' && respuesta != 's' && respuesta != 'N' && respuesta != 'n');
 
     return respuesta;
+}
+
+// ============================================
+
+double calcularRecibo(int tipo, int kwh)
+{
+    double energia = 0;
+    double cargoComercial = 0;
+    double alumbrado;
+    double total;
+
+    switch (tipo)
+    {
+
+    case 1:
+        energia = energiaResidencial(kwh);
+        break;
+
+    case 2:
+        energia = kwh * COMERCIAL;
+        cargoComercial = FIJO;
+        break;
+    }
+
+    // Es el 2% DEL MONTO DE ENERGIA
+    alumbrado = energia * PUBLICO;
+
+    // TOTAL DEL RECIBO
+    total = energia + alumbrado + cargoComercial;
+
+    return total;
 }
