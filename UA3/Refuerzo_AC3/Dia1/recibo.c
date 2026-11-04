@@ -3,6 +3,7 @@
 ==========================================================================
 
 * ENUNCIADO:
+
 Una cooperativa eléctrica emite recibos.
 Se digita el número de medidor (1000 a 9999), el tipo de cliente (1 Residencial, 2 Comercial) y el consumo del mes en kWh (0 a 3000); un dato inválido se vuelve a pedir.
 Residencial: los primeros -> 200 kWh a ₡80 c/u  ->201 a 400 a ₡110  -> 400 o más a ₡150. Comercial: ₡130 por kWh más un cargo fijo de ₡3000.
@@ -11,14 +12,16 @@ Después de cada recibo se pregunta si hay otro (S/N).
 
 * QUÉ SE LOGRA:
 
+Calcular el monto a pagar por consumo eléctrico de clientes residenciales y comerciales, aplicando tarifas escalonadas, cargos fijos, impuestos de alumbrado público y validaciones de rangos, además de llevar el control acumulativo de la facturación y el medidor con el cargo más alto.
 
 * CÓMO SE LOGRA:
-  arreglo para medidor y tipo de cliente
-  if anidado tarifa
-  switch opciones
 
+Estructuras de do-while
+if-else anidados para tarifas escalonadas
+switch para calcular tarifas
 
 * RESULTADO ESPERADO:
+
 Mostrar cuántos recibos se emitieron, el total facturado y el medidor con el recibo mayor.
 
 ========================================================================== */
