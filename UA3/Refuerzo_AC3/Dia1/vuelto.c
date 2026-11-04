@@ -26,6 +26,8 @@ Mostrar en pantalla el vuelto total, el desglose detallado de los billetes y mon
 
 // PROTOTIPOS DE FUNCIONES
 
+void limpiar();//Para limpiar basura
+
 int leerEntero(const char mensaje[], int minimo, int maximo); //Funcion para solicitar datos: totalcompra,montopagado
 char leerSN(const char mensaje[]);// Para respuesta si agrega más
 
@@ -41,10 +43,19 @@ int main(void){
 
     double compra, pagado, vuelto;
     char respuesta;
+    int tPiezas = 0;
 
     do
     {
-        /* code */
+        compra = leerEntero("Digita el total de compra",MIN,MAX);//llamamos a la funcion para solicitar total de la compra
+
+        do
+        {
+        compra = leerEntero("Digita el monto pagado:", );//llamamos a la funcion para solicitar monto pagado
+        } while (pagado < compra);
+        
+
+        
 
 
 
@@ -61,7 +72,18 @@ int main(void){
 
 }
 // Declaracion de funciones
+
+// ===============limpiar basura========================
+void limpiar()
+{
+    int caracter;
+    while ((caracter = getchar()) != '\n' && caracter != EOF)
+    {
+    }
+}
+// =====================================================
  
+
 // ===============funcion leerEntero======================
 int leerEntero(const char mensaje[], int minimo, int maximo){
 
