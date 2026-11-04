@@ -51,7 +51,7 @@ int main(void){
 
         do
         {
-        compra = leerEntero("Digita el monto pagado:", );//llamamos a la funcion para solicitar monto pagado
+        pagado = leerEntero("Digita el monto pagado:",compra,MAX);//llamamos a la funcion para solicitar monto pagado
         } while (pagado < compra);
         
 
@@ -105,12 +105,6 @@ int valor;
 
     // regresa valor
     return valor;
-
-
-
-
-
-
 }
 //========================FIN==========================
 
@@ -136,12 +130,6 @@ char leerSN(const char mensaje[]){
     } while (continuar != 'S' && continuar != 's' && continuar != 'N' && continuar != 'n');
 
     return continuar;
-
-
-
-
-
-
 }
 
 //======================FIN===============================
