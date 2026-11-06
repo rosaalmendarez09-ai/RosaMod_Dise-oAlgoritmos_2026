@@ -26,7 +26,7 @@ Mostrar en pantalla el vuelto total, el desglose detallado de los billetes y mon
 
 // PROTOTIPOS DE FUNCIONES
 
-void limpiar(); // Para limpiar basura
+void limpiar(void); // Para limpiar basura
 
 int leerEntero(const char mensaje[], int minimo, int maximo); // Funcion para solicitar datos: totalcompra,montopagado
 char leerSN(const char mensaje[]);                            // Para respuesta si agrega más
@@ -45,7 +45,7 @@ int main(void)
     double compra, pagado, vuelto; // Guardan los valores de compra, pago y vuelto
     char respuesta;                // Guarda la respuesta del usuario para otra compra
     int piezas, i, resto;          // piezas y resto se usan en el cálculo del vuelto
-    int dinero[11] = {20000, 10000, 5000, 2000, 1000, 500, 100, 50, 25, 10, 5}; // Denominaciones de mayor a menor
+    int const dinero[11] = {20000, 10000, 5000, 2000, 1000, 500, 100, 50, 25, 10, 5}; // Denominaciones de mayor a menor
 
     do
     {
@@ -76,8 +76,7 @@ int main(void)
             // y actualiza el resto del vuelto para seguir con la siguiente
             piezas = cuantas(&resto, dinero[i]);
             if (piezas > 0)
-            {
-                // Solo se muestran las denominaciones que se usan en el vuelto
+            { // Solo se muestran las denominaciones que se usan en el vuelto
                 printf("%d de ₡%d\n", piezas, dinero[i]);
                 tPiezas += piezas; // Cuenta todas las piezas entregadas del vuelto
             }
@@ -103,7 +102,7 @@ int main(void)
 // Declaracion de funciones
 
 // ===============limpiar basura========================
-void limpiar()
+void limpiar(void)
 {
     int caracter;
     while ((caracter = getchar()) != '\n' && caracter != EOF)

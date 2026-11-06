@@ -1,17 +1,17 @@
-// ERROR: cierre for en la funcion, el strcmp y == 0 y arreglo de nombre[N][15]
+// ERROR: 
 
 // POR QUE: Los arreglo solo leen por caracter uno a uno por lo cual si no se agrega strcmp no va a comparar el nombre nunca. y el cierre del for para que se vuelva a iniciar el ciclo y pueda seguir revisandolo
 
-// CORRECCION:  if (strcmp(nombres[i], buscado) == 0)  ombres[N][15] y el cierre del for en la funcion.
+// CORRECCION: La función buscar: usa strcmp para comparar nombres y devuelve la posición encontrada, o -1 si no existe. También coinciden N y la cantidad de productos.
 
 #include <stdio.h>
 #include <string.h>
 #define N 4
 
-int buscar(const char nombres[N][15], int n, const char buscado[])
+int buscar(const char nombres[][15], int n, const char buscado[])
 {
     int i;
-    for (i = 0; i <= n; i++)
+    for (i = 0; i < n; i++)
     {
         if (strcmp(nombres[i], buscado) == 0)
             return i;
@@ -21,8 +21,8 @@ int buscar(const char nombres[N][15], int n, const char buscado[])
 
 int main(void)
 {
-    char nombres[N][15] = {"Arroz", "Frijoles", "Cafe", "Azucar"};
-    double precios[N] = {1200, 1500, 3200, 900};
+    char nombres[][15] = {"Arroz", "Frijoles", "Cafe", "Azucar"};
+    double precios[] = {1200, 1500, 3200, 900};
     char buscado[15];
     int pos;
     printf("Producto: ");
