@@ -2,7 +2,8 @@
  ENUNCIADO: Registrar 5 libros y guardar el codigo(100 a 999 no repetir), titulo(una sola palabra,MAX 19caracteres), ejemplares disponibles. Indicar si el libro esta activo o dado de baja. Se inicia con 3 libros cargados. Menu que se repita hasta digitar 0. Toda opcion fuera de rango volver a solicitarla.
  QUE SE LOGRA: Crear un sistema para controlar el prestamo de los libros de la biblioteca de un colegio.
  COMO SE LOGRA: Por medio de un do-while para recorrer el menu cuantas veces se requiera.Prototipos y Funciones que ayudan a trabajar de manera mas limpia y ordenada el main.for para recorrer los arreglos.Y contanstes para trabajar mas ordenados los rangos
- RESULTADO ESPERADO: (
+ RESULTADO ESPERADO: 
+
  Paso Acción Resultado esperado
 1- 2 Consultar Los 3 libros iniciales; libros activos: 3.
 2- 1 Incluir, código 102 El código 102 ya existe.
@@ -12,16 +13,7 @@
 6- 5 Buscar 101 No existe un libro activo con el código 101.
 7- 5 Buscar 103 103 Cocori: 4 disponibles.
 8- Opción 9 (inválida) y luego 2 Consultar Pide de nuevo la opción; muestra 102 (0), 103 (4) y 104 (2);
-libros activos: 3.
-
-
- COMO USAR ESTA PLANTILLA:
-   - main, el menu y leerEntero ya estan hechos: NO necesita cambiarlos.
-   - Usted programa el CUERPO de las 5 funciones marcadas con TAREA, en el
-     orden de los numeros, siguiendo los PASOS de cada una.
-   - Compile despues de cada funcion. Al inicio aparecen advertencias
-     "unused parameter": desaparecen al completar las funciones.
-   - Agregue sus comentarios (que hace, como y para que).*/
+libros activos: 3. */
 
 #include <stdio.h>
 #include <string.h>
@@ -44,6 +36,7 @@ void darDeBaja(int *activo);
 
 int main(void)
 {
+    // Los arreglos usan el mismo indice para guardar los datos de cada libro.
     int cod[MAX_LIBROS] = {101, 102, 103};
     char tit[MAX_LIBROS][TAM_TITULO] = {"Quijote", "Principito", "Cocori"};
     int disp[MAX_LIBROS] = {3, 2, 4};
@@ -58,6 +51,7 @@ int main(void)
         printf("1 Incluir  2 Consultar  3 Prestar  4 Dar de baja\n");
         printf("5 Buscar  0 Salir\n");
         opcion = leerEntero("Opcion", 0, 5);
+
         // Las opciones 3, 4 y 5 necesitan un libro: se busca una sola vez.
         if (opcion >= 3)
         {
@@ -73,6 +67,7 @@ int main(void)
         switch (opcion)
         {
         case 1:
+            // No se permite agregar libros cuando el arreglo esta lleno.
             if (n == MAX_LIBROS)
             {
                 printf("No hay espacio para mas libros\n");
@@ -87,7 +82,7 @@ int main(void)
             printf("Titulo (una palabra): ");
             scanf("%19s", titulo);
             ejemplares = leerEntero("Ejemplares", 1, EJEM_MAX);
-            // &n: se envia la DIRECCION de n para que incluir la aumente
+            // Se envia la direccion de n para que incluir actualice el total.
             incluir(cod, tit, disp, activo, &n, codigo, titulo,
                     ejemplares);
             printf("Libro incluido (%d de %d)\n", n, MAX_LIBROS);
@@ -120,10 +115,10 @@ int main(void)
     return 0;
 }
 
-// Ya esta hecha: pide un entero y lo repite si esta fuera de rango.
+// Solicita un entero dentro del rango indicado y vuelve a pedirlo si no es valido.
 int leerEntero(const char mensaje[], int minimo, int maximo)
 {
-    int valor;
+    int valor = 0;
     do
     {
         printf("%s (%d a %d): ", mensaje, minimo, maximo);
@@ -132,17 +127,12 @@ int leerEntero(const char mensaje[], int minimo, int maximo)
     return valor;
 }
 
-// TAREA 1 · Busqueda secuencial de un libro ACTIVO por codigo.
-// PASOS:
-//   1. Declare un indice i.
-//   2. Recorra con for (i = 0; i < n; i++).
-//   3. Si cod[i] == codigo y activo[i] == 1, devuelva i.
-//   4. Despues del for, devuelva -1 (no esta).
+// Busca un codigo entre los libros activos y devuelve su indice, o -1 si no existe.
 int buscarCodigo(const int cod[], const int activo[], int n, int codigo)
 {
     int i;
 
-    for (i = 0; i < n; i++) // Los for permiten recorrer los arreglos para buscar lo que hay guardado dentro
+    for (i = 0; i < n; i++)
     {
         if (cod[i] == codigo && activo[i] == 1)
         {
@@ -152,36 +142,24 @@ int buscarCodigo(const int cod[], const int activo[], int n, int codigo)
     return -1;
 }
 
-// TAREA 2 · Guarda un libro nuevo en la primera posicion libre.
-// La posicion libre es *n (el valor de n de main).
-// PASOS:
-//   1. cod[*n] = codigo;
-//   2. strcpy(tit[*n], titulo);      (las cadenas se copian con strcpy)
-//   3. disp[*n] = ejemplares;
-//   4. activo[*n] = 1;
-//   5. (*n)++;                       (con parentesis: aumenta n de main)
+// Guarda un libro en la siguiente posicion libre y aumenta la cantidad registrada.
 void incluir(int cod[], char tit[][TAM_TITULO], int disp[], int activo[],
              int *n, int codigo, const char titulo[], int ejemplares)
 {
     cod[*n] = codigo;
-    strcpy(tit[*n], titulo); // Sirve para copiar texto
+    strcpy(tit[*n], titulo);
     disp[*n] = ejemplares;
     activo[*n] = 1;
     (*n)++;
 }
 
-// TAREA 3 · Muestra los libros activos y cuantos son.
-// PASOS:
-//   1. Declare i y un contador activos = 0.
-//   2. Muestre el encabezado: Codigo, Titulo y Disponibles.
-//   3. Recorra con for; si activo[i] == 1, muestre cod[i], tit[i] y
-//      disp[i] y sume 1 al contador.
-//   4. Al final muestre "Libros activos: " y el contador.
+
 void consultar(const int cod[], const char tit[][TAM_TITULO],
-               const int disp[], const int activo[], int n) // muestra la tabla de los libros activos y cuantos son
+               const int disp[], const int activo[], int n)
 {
     int i, activos = 0;
 
+    // Solo se muestran libros activos; el contador se calcula durante el recorrido.
     printf("%-6s %-12s %6s\n", "Codigo", "Titulo", "Disponible");
     for (i = 0; i < n; i++)
     {
@@ -191,15 +169,12 @@ void consultar(const int cod[], const char tit[][TAM_TITULO],
             activos++;
         }
     }
-    printf("Disponible: %d\n", activos);
+    printf("Libros activos: %d\n", activos);
 }
 
-// TAREA 4 · Presta un ejemplar si hay disponibles.
-// *disponibles es el dato de main (disp[pos]).
-// PASOS:
-//   1. Si *disponibles == 0, devuelva 0 (no se presto).
-//   2. Si no, reste uno con (*disponibles)--; y devuelva 1.
-int prestar(int *disponibles) // Resta a los ejemplares disponobles; devuelve 1 si resto y 0 sino habian en existencias
+
+// Descuenta un ejemplar si hay existencias; devuelve 1 si se presto y 0 si no.
+int prestar(int *disponibles)
 {
     if (*disponibles == 0)
     {
@@ -211,10 +186,8 @@ int prestar(int *disponibles) // Resta a los ejemplares disponobles; devuelve 1 
     return 1;
 }
 
-// TAREA 5 · Da de baja un libro (eliminacion logica).
-// *activo es el estado del libro en main (activo[pos]).
-// PASO: ponga el estado en 0 con *activo = 0;
-void darDeBaja(int *activo) // Pone el estado de libro en 0.
+// Da de baja el libro sin borrar sus datos: solo cambia su estado a inactivo.
+void darDeBaja(int *activo)
 {
     *activo = 0;
 }
